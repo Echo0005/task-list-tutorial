@@ -1,0 +1,55 @@
+.icon-folder{
+    color: rgba(238, 155, 0, 0.973);
+    font-size: 30px;
+}
+
+.inline{
+    display: inline;
+}
+
+.dir-folder{
+    padding-left: 30px;
+}
+
+.abbr-effect{
+    color: orange;
+}
+.abbr-caution{
+    color: red;
+}
+.abbr-curiosity{
+    color: blue;
+}
+
+.header{
+    padding-top: 15px;
+}
+
+.directorio{
+    font-size: 20px;
+    padding: 10px 0px 1px 20px;
+    background-color: rgb(255, 221, 177);
+    width:auto
+}
+
+
+.padding{
+    padding: 10px 0px 10px 0px;
+}
+.margin {
+    margin: 10px 0px 0px 10px;
+}
+.margin-zero {
+    margin: 0px;
+}
+
+
+.new-code{
+    color: green;
+    background-color: aquamarine;
+}
+
+
+p {
+    padding: 0px 0px 0px 10px;
+}

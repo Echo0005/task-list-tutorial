@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <title>Task List in Angular</title>
+</head>
+<body oncopy="return false">
+    <section class="container">
+        <header class="header">
+            <h1>Lista de tareas creada con Angular</h1>
+            <p>A continuacion se realizara el ejercicio dado en el curso Argentina Programa (segunda etapa) en su 3er modulo. <br>
+            <i><b>por motivos de garantizar todo el trabajo posible y necesario, se desabilita en esta pagina el copiar texto (por ende, codigo)</b></i>
+            </p>
+
+            <div>
+                <p class="abbr-effect">(?) Efecto</p>
+                <p class="abbr-caution">(?) Indicacion</p>
+                <p class="abbr-curiosity">(?) Curiosidad</p>
+            </div>
+
+            
+        </header>
+
+
+        <h4>Paso a paso:</h4>
+
+        <div class="container border">
+            <div class="padding">
+                <h5>Terminal</h5>
+                <p>
+                    Abrir la Terminal y crear un directorio donde querramos nuestro proyecto. <br>
+                    Comando: <b>ng new task-list</b> para crear el proyecto (App). <abbr class="abbr-curiosity" title="Con 'code .' en la Terminal, abrimos Visual Studio Code usando el directorio donde se encuentra operando nuestra terminal.">(?)</abbr>
+                </p>
+                <h5>Code</h5>
+                <p>
+                    Una vez en Code, abrimos terminal dentro y con el comando <b>ng serve</b> iniciamos la App creada <abbr class="abbr-curiosity" title="Que en principio contendra una Demo de Angular.">(?)</abbr> <abbr class="abbr-caution" title="Encontraremos la App funcionando escribiendo en la URL de un navegador: 'localhost:' mas el puerto que de Code. 'localhost:4200' es el por default de Angular Live Development Server (que fue lo iniciado con el comando indicado).">(?)</abbr>
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="container border">
+            <header class="padding">
+                <h5>A continuacion se ira mostrando bloque por bloque de manera focalizada, paso a paso, e intentando explicar sobre la marcha, todo el procedimiento para tener nuestra App funcionando:</h5>
+                <p>
+                    El procedimiento sera ir Creando Componentes, los cuales iremos "nutriendo" de codigo para luego ir entrelazando sus funcionalidades unos con otros.
+                </p>
+            </header>
+            <div>
+                <p>
+                    Para este proyecto tenemos disponible el CSS global <a href="https://argentinaprograma.inti.gob.ar/pluginfile.php/49786/mod_page/content/16/style_video.css?time=1644098815635" target="_blank">aquí</a> que debemos aplicar <abbr class="abbr-caution" title="copiar y pegar a styles.css en carpeta src del proyecto">(?)</abbr> <br><br>
+                        
+                    Borramos el Contenido dentro del Template general en: <b>src/app/app.component.html</b> <abbr class="abbr-curiosity" title="Lo borrado es el contenido de la Demo.">(?)</abbr>  <br> <br>
+                    Terminal de Code: <b>ng generate component components/header</b> <abbr class="abbr-curiosity" title="Generamos un nuevo Componente llamado header el cual sera generado en la carpeta components.">(?)</abbr>
+                </p>
+            </div>
+
+            <!-- Header Component -->   
+            <div class="directorio margin">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>components</li>
+                            <ul type="disc">
+                                <li>header</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="padding">
+                <div class="border padding margin">
+                    <p>
+                        header.component.<b>ts</b>: <abbr class="abbr-effect" title="Creamos la variable 'title' (que usaremos de Titulo) en el componente logico.">(?)</abbr> <br>
+                        Arriba de:  <b>constructor() { }</b>                
+                    </p>
+                    <pre>
+                        <code>
+                            import { Component, OnInit } from '@angular/core';
+
+                            @Component({
+                              selector: 'app-header',
+                              templateUrl: './header.component.html',
+                              styleUrls: ['./header.component.css']
+                            })
+                            export class HeaderComponent implements OnInit {
+                            
+                              <span class="new-code">title:string = 'Task List';</span>
+                            
+                              constructor() { }
+                            
+                              ngOnInit(): void {
+                              }
+                            
+                            }                            
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="border padding margin">
+                    <p>
+                        header.component.<b>html</b>: <abbr class="abbr-effect" title="Llamamos en el Template (.html) de Header a la variable 'title' del componente logico (.ts).">(?)</abbr>
+                    </p>
+                    <pre>
+                        <code>                            
+                            <span class="new-code">&lt;header&gt;</span>
+                                <span class="new-code">&lt;h1&gt;{{title}}&lt;/h1&gt;</span>
+                            <span class="new-code">&lt;/header&gt;</span>
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="border padding margin">
+                    <p class="margin-zero">
+                        header.component.<b>css</b>: Para los estilos propios del Componente 'Header' usaremos <a href="/css/header.component.css" target="_blank">estos</a>.
+                    </p>                      
+                </div>
+
+
+                
+
+            </div>
+
+            <!-- App Component -->
+            <div class="padding">
+                <div class="directorio margin">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>                        
+                        </ul>
+                    </div>
+                </div>
+    
+                <div class="border padding margin">
+                    <p>
+                        app.component.<b>html</b>: <abbr class="abbr-effect" title="Montamos el componente Header en el Template (HTML) del App. En este caso el HTML Header.Component es montado en el HTML App.Component.">(?)</abbr>
+                    </p>
+                    <pre>
+                        <code>
+                            <span class="new-code">&lt;div&gt;</span>
+                                <span class="new-code">&lt;app-header&gt;&lt;/app-header&gt;</span>
+                            <span class="new-code">&lt;/div&gt;</span>               
+                        </code>
+                    </pre>
+                </div>
+            </div>            
+
+        </div>
+
+        <!-- Git -->
+        <div class="container border">
+            <div class="padding">
+                <h3 class="inline">Git</h3>
+                <h5 class="inline"><abbr class="abbr-caution" title="Esto es opcional.">(?)</abbr></h5>
+                <p>
+                    En una nueva Terminal en Code: <br>
+                    <b>
+                    git add --all <br>
+                    git commit -m "Primer componente header" <br><br>
+    
+                    git branch boton_task <br>
+                    git branch <br>
+                    git checkout boton_task
+                    </b>
+                </p>
+            </div>
+        </div>
+
+        <!-- Button Component -->
+        <div class="container border">
+            <div class="padding">
+                <p>
+                    Terminal de Code: <b>ng generate component components/button</b> <abbr class="abbr-effect" title="Crearemos el Componente que hara de Boton.">(?)</abbr>
+                </p>
+            </div>
+
+            <div class="directorio margin">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>components</li>
+                            <ul type="disc">
+                                <li>header</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border padding margin">
+                <p>
+                    header.component.<b>html</b>: <abbr class="abbr-effect" title="Montaremos el modulo del Boton en el modulo Header. Al mismo tiempo que le asignamos un Color y un Texto.">(?)</abbr>
+                </p>
+                <pre>
+                    <code>
+                        &lt;header&gt;
+                        &lt;h1&gt;{{title}}&lt;/h1&gt;
+                        <span class="new-code">&lt;app-button color="green" text="Add Task"&gt;&lt;/app-button&gt;</span>
+                        &lt;/header&gt;
+                    </code>
+                </pre>
+            </div>
+            
+            <div class="directorio margin">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>components</li>
+                            <ul type="disc">
+                                <li>button</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="border padding margin">
+                    <p>
+                        button.component.<b>html</b>: <abbr class="abbr-effect" title="Al template de Button le agregamos un Boton y con estilo del Style Global.">(?)</abbr> <abbr class="abbr-curiosity" title="&#123;&#123;text&#125;&#125; sera la variable que asignaremos luego en el button.component.ts al igual que la direccion de &#91;ngStyle&#93; para el color.">(?)</abbr> <abbr class="abbr-caution" title="&#91;ngStyle&#93;, respetar la mayuscula.">(?)</abbr>
+                    </p>
+                    <pre>
+                        <code>
+                            <span class="new-code">&lt;button class="btn" &#91;ngStyle&#93;="&#123;'background-color': color&#125;"&gt;&#123;&#123;text&#125;&#125;&lt;/button&gt;</span>     
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="border margin">
+                    <p class="margin-zero">
+                        Ahora tenemos que indicar que el Template (HTML) del Button reciba datos del Template Header. <abbr class="abbr-curiosity" title="el color=&quot;green&quot; text=&quot;Add Task&quot; .">(?)</abbr>
+                    </p>
+                </div>
+
+                
+
+                <div class="border padding margin">
+                    <p>
+                        button.component.<b>ts</b>:
+                    </p>
+                    <pre>
+                        <code>
+                            import { Component, OnInit<span class="new-code">, Input</span> } from '@angular/core';
+    
+                            @Component({
+                                selector: 'app-button',
+                                templateUrl: './button.component.html',
+                                styleUrls: ['./button.component.css']
+                              })
+                              export class ButtonComponent implements OnInit {
+                                
+                                <span class="new-code">@Input() text: string = "";</span>
+                                <span class="new-code">@Input() color: string = "";</span>
+                                                          
+                                constructor() { }
+                              
+                                ngOnInit(): void {
+                                }
+                              
+                              }
+                        </code>
+                    </pre>
+                </div>
+                                
+            </div>
+
+        </div>
+
+
+
+
+            
+    </section>
+</body>
+</html>
