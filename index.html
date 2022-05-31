@@ -15,16 +15,16 @@
 </head>
 <body oncopy="return false">
     <section class="container">
-        <header class="header">
+        <header class="header padding">
             <h1>Lista de tareas creada con Angular</h1>
             <p>A continuacion se realizara el ejercicio dado en el curso Argentina Programa (segunda etapa) en su 3er modulo. <br>
             <i><b>por motivos de garantizar todo el trabajo posible y necesario, se desabilita en esta pagina el copiar texto (por ende, codigo)</b></i>
             </p>
 
             <div>
-                <p class="abbr-effect">(?) Efecto</p>
-                <p class="abbr-caution">(?) Indicacion</p>
-                <p class="abbr-curiosity">(?) Curiosidad</p>
+                <p class="abbr-effect inline">(?) Efecto</p>
+                <p class="abbr-caution inline">(?) Indicacion</p>
+                <p class="abbr-curiosity inline">(?) Curiosidad o Tip</p>
             </div>
 
             
@@ -60,12 +60,15 @@
                 <p>
                     Para este proyecto tenemos disponible el CSS global <a href="https://argentinaprograma.inti.gob.ar/pluginfile.php/49786/mod_page/content/16/style_video.css?time=1644098815635" target="_blank">aquí</a> que debemos aplicar <abbr class="abbr-caution" title="copiar y pegar a styles.css en carpeta src del proyecto">(?)</abbr> <br><br>
                         
-                    Borramos el Contenido dentro del Template general en: <b>src/app/app.component.html</b> <abbr class="abbr-curiosity" title="Lo borrado es el contenido de la Demo.">(?)</abbr>  <br> <br>
-                    Terminal de Code: <b>ng generate component components/header</b> <abbr class="abbr-curiosity" title="Generamos un nuevo Componente llamado header el cual sera generado en la carpeta components.">(?)</abbr>
+                    Borramos el Contenido dentro del Template general en: <b>src/app/app.component.html</b> <abbr class="abbr-curiosity" title="Lo borrado es el contenido de la Demo.">(?)</abbr>
                 </p>
             </div>
 
             <!-- Header Component -->   
+            <div class="margin">
+                <h4>Header</h4>
+                <p>Terminal de Code: <b>ng generate component components/header</b> <abbr class="abbr-curiosity" title="Generamos un nuevo Componente llamado header el cual sera generado en la carpeta components.">(?)</abbr></p>
+            </div>
             <div class="directorio margin">
                 <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                 <div class="dir-folder">
@@ -81,11 +84,14 @@
                 </div>
             </div>
 
-            <div class="padding">
+            <div>
                 <div class="border padding margin">
                     <p>
-                        header.component.<b>ts</b>: <abbr class="abbr-effect" title="Creamos la variable 'title' (que usaremos de Titulo) en el componente logico.">(?)</abbr> <br>
-                        Arriba de:  <b>constructor() { }</b>                
+                        header.component.<b>ts</b>: 
+                        
+                        <abbr class="abbr-effect" title="Creamos la variable 'title' (que usaremos de Titulo) en el componente logico.">(?)</abbr>
+                        <abbr class="abbr-caution" title="Arriba de: constructor() { }.">(?)</abbr>
+          
                     </p>
                     <pre>
                         <code>
@@ -181,7 +187,9 @@
         </div>
 
         <!-- Button Component -->
+        
         <div class="container border">
+            <h4 class="padding margin">Componente Boton:</h4>
             <div class="padding">
                 <p>
                     Terminal de Code: <b>ng generate component components/button</b> <abbr class="abbr-effect" title="Crearemos el Componente que hara de Boton.">(?)</abbr>
@@ -244,7 +252,7 @@
                     </pre>
                 </div>
 
-                <div class="border margin">
+                <div class="margin">
                     <p class="margin-zero">
                         Ahora tenemos que indicar que el Template (HTML) del Button reciba datos del Template Header. <abbr class="abbr-curiosity" title="el color=&quot;green&quot; text=&quot;Add Task&quot; .">(?)</abbr>
                     </p>
@@ -279,8 +287,260 @@
                         </code>
                     </pre>
                 </div>
+
+                <div class="padding">
+                    <p>Crearemos una Funcion para tomar el Click de nuestro boton:</p>
+                    <div class="border padding margin">
+                        <p class="margin">
+                            button.component.<b>ts</b>:
+                            <abbr class="abbr-curiosity" title="Debug: en las '{}' de onClick podemos colocar console.log&#40;'menseje deseado'&#41; para que emita en consola a modo de verificar que este funcionando cuando le hagamos click.">(?)</abbr>
+                        </p>
+                        <pre>
+                            <code>
+                                import { Component, OnInit, Input } from '@angular/core';
+        
+                                @Component({
+                                    selector: 'app-button',
+                                    templateUrl: './button.component.html',
+                                    styleUrls: ['./button.component.css']
+                                  })
+                                  export class ButtonComponent implements OnInit {
+                                    
+                                    @Input() text: string = "";
+                                    @Input() color: string = "";
+                                                              
+                                    constructor() { }
+                                  
+                                    ngOnInit(): void {
+                                    }
+
+                                    <span class="new-code">onClick(){</span>
+                                        <span class="new-code">this.btnClick.emit();</span>    
+                                    <span class="new-code">}</span>
+                                  
+                                  }
+                            </code>
+                        </pre>
+
+                        
+
+                    </div>
+
+                    <p class="margin">Y agregamos esta Funcion a la etiqueta button del Template (.html):</p>
+
+                    <div class="border padding margin">
+                        <p>button.component.<b>html</b>:</p>
+                        <pre>
+                            <code>
+                                &lt;button class="btn" [ngStyle]="{'background-color': color}" <span class="new-code">(click)="onClick()"</span>&gt;{{text}}&lt;/button&gt;
+                            </code>
+                        </pre>
+                    </div>
+                        
+
+                    <p class="margin">Queremos que nuestra Funcion lleve informacion hacia el Header. Proseguimos con los Outputs:</p>
+
+                    <div class="border padding margin">
+
+                        <p>button.component.<b>ts</b>: <abbr class="abbr-effect" title="Esta funcion emitira un Evento.">(?)</abbr></p>   
+
+                        <pre>
+                            <code>
+                                import { Component, OnInit, Input<span class="new-code">, Output, EventEmitter</span> } from '@angular/core';
+        
+                                @Component({
+                                    selector: 'app-button',
+                                    templateUrl: './button.component.html',
+                                    styleUrls: ['./button.component.css']
+                                  })
+                                  export class ButtonComponent implements OnInit {
+                                    
+                                    @Input() text: string = "";
+                                    @Input() color: string = "";
+                                    <span class="new-code">@Output() btnClick = new EventEmitter</span>
+                                                              
+                                    constructor() { }
+                                  
+                                    ngOnInit(): void {
+                                    }
+
+                                    onClick(){
+                                        console.log("Click!")    
+                                    }
+                                  
+                                  }
+                            </code>
+                        </pre>
+                    </div>
+
+                    <p class="margin">Necesitamos que el Evento de nuestra Funcion llegue al Header:</p>
+
+                    <div class="directorio margin">
+                        <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                        <div class="dir-folder">
+                            <ul type="disc">
+                                <li>app</li>
+                                <ul type="disc">
+                                    <li>components</li>
+                                    <ul type="disc">
+                                        <li>header</li>
+                                    </ul>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    
+
+                    <div class="border padding margin">
+                        <p>
+                            header.component.<b>html</b>: 
+                            <abbr class="abbr-effect" title="Cuando se resiva nuestra accion (btnClick) hara llamado a la funcion toogleAddTask() que crearemos en el .TS de Header.">(?)</abbr>
+                            <abbr class="abbr-caution" title="Recordar que el btnClick viene de Salida desde el Componente Button. Dicho queda por si alguien se perdio mentalmente en la conectividad de los asuntos.">(?)</abbr>
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;header&gt;
+                                    &lt;h1&gt;{{title}}&lt;/h1&gt;
+                                    &lt;app-button color="green" text="Add Task" <span class="new-code">btnClick)="toogleAddTask()"</span>&gt;&lt;/app-button&gt;
+                                &lt;/header&gt;
+                            </code>
+                        </pre>
+                    </div>
+
+                    <div class="border padding margin">
+                        <p>
+                            header.component.<b>ts</b>:
+                            <abbr class="abbr-caution" title="Desde el Template (.html) de Button envia hacia la Logica (.ts) del mismo, para luego enviar al Template de Header, para luego desde este ultimo, enviar a la Logica de Header nuestra consulta, nuestro 'click'.">(?)</abbr>
+                            <abbr class="abbr-curiosity" title="Debug: toogleAddTask(){console.log('toogleAddTask!');} , o sea, podemos usar el nombre de la funcion como mensaje a enviar a consola para facilitar identificacion de funcionamientos.">(?)</abbr>
+                        </p>
+                        <pre>
+                            <code>
+                                import { Component, OnInit } from '@angular/core';
+
+                                @Component({
+                                  selector: 'app-header',
+                                  templateUrl: './header.component.html',
+                                  styleUrls: ['./header.component.css']
+                                })
+                                export class HeaderComponent implements OnInit {
+                                
+                                  title:string = 'Task List';
+                                
+                                  constructor() { }
+                                
+                                  ngOnInit(): void {
+                                  }
+                                
+                                  <span class="new-code">toogleAddTask(){</span>
+                                    <span class="new-code">console.log("toogleAddTask!");</span>
+                                  <span class="new-code">}</span>                            
+                                    
+                                }
+                            </code>
+                        </pre>                        
+                    </div>
+
+
+                </div>
+
+
                                 
             </div>
+
+
+        </div>
+
+        <!-- Git 2 -->
+        <div class="border">
+            <div>
+                <div class="padding margin">
+                    <h3 class="inline">Git</h3>
+                    <h5 class="inline"><abbr class="abbr-caution" title="Esto es opcional.">(?)</abbr> <abbr class="abbr-curiosity" title="Puede que sea necesario reiniciar el servidor nuevamente con el comando 'ng serve' tras los siguientes comandos.">(?)</abbr></h5>
+                    <p>
+                        Terminal de Code: <br>
+                        <b>
+                        git add --all <br>
+                        git commit -m "Primer boton" <br><br>
+        
+                        git checkout master <br>
+                        git merge boton_task
+                        </b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pre-Base de Datos -->
+        <div class="border">
+            <div class="margin">
+                <h4>Emulador de Base de Datos y pre-base, para la Base de Datos.</h4>
+            </div>
+            <div class="directorio margin">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="margin">
+                <p>
+                    Creamos un nuevo archivo llamado <b>mock-tasks.ts</b>
+                    <abbr class="abbr-effect" title="Usaremos este archivo de base de datos temporal.">(?)</abbr>
+                </p>
+            </div>
+            <div class="border padding margin">
+                <p>mock-tasks.<b>ts</b>:</p>
+                <pre>
+                    <code>
+                        <span class="new-code">export const TASKS = [</span>
+                            <span class="new-code">{</span>
+                            <span class="new-code">id: 1,</span>
+                            <span class="new-code">text: "Terminar primer modulo de Angular",</span>
+                            <span class="new-code">day: "Agosto 5 a las 12:00",</span>
+                            <span class="new-code">reminder: true</span>
+                            <span class="new-code">},</span>
+                            <span class="new-code">{</span>
+                            <span class="new-code">id: 2,</span>
+                            <span class="new-code">text: "Hacer las compras para la cena",</span>
+                            <span class="new-code">day: "Agosto 5 a las 17:00",</span>
+                            <span class="new-code">reminder: true</span>
+                            <span class="new-code">},</span>
+                            <span class="new-code">{</span>
+                            <span class="new-code">id: 3,</span>
+                            <span class="new-code">text: "Investigar sobre Bootstrap",</span>
+                            <span class="new-code">day: "Agosto 5 a las 19:00",</span>
+                            <span class="new-code">reminder: false</span>
+                            <span class="new-code">},</span>
+                        <span class="new-code">]</span>               
+                    </code>
+                </pre>
+            </div>
+            <div class="margin">
+                <p>
+                    Creamos un nuevo archivo llamado <b>Tasks.ts</b>
+                    <abbr class="abbr-effect" title="Usaremos este archivo de interfase de la base de datos temporal.">(?)</abbr>
+                </p>
+                <div class="border">
+                    <div class="padding">
+                        <p>Task.<b>ts</b>:</p>
+                        <pre>
+                            <code>
+                                <span class="new-code">export interface Task {</span>
+                                    <span class="new-code">id?: number;</span>
+                                    <span class="new-code">text: string;</span>
+                                    <span class="new-code">day: string;</span>
+                                    <span class="new-code">reminder: boolean;</span>
+                                <span class="new-code">}</span>                             
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                
+
+            </div>
+
 
         </div>
 
