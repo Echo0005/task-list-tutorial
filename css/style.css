@@ -37,19 +37,31 @@
     padding: 10px 0px 10px 0px;
 }
 .margin {
-    margin: 10px 0px 0px 10px;
+    margin: 10px 10px 10px 10px;
 }
 .margin-zero {
     margin: 0px;
 }
 
 
+.alerta{
+    color: rgb(150, 0, 0);
+    background-color: rgb(255, 216, 166);
+}
 .new-code{
     color: green;
     background-color: aquamarine;
+}
+.delete-code{
+    color: rgb(119, 0, 0);
+    background-color: rgb(255, 124, 124);
 }
 
 
 p {
     padding: 0px 0px 0px 10px;
+}
+
+.centrado{
+    margin: 0, auto;
 }

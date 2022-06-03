@@ -17,7 +17,8 @@
     <section class="container">
         <header class="header padding">
             <h1>Lista de tareas creada con Angular</h1>
-            <p>A continuacion se realizara el ejercicio dado en el curso Argentina Programa (segunda etapa) en su 3er modulo. <br>
+            <p>
+                A continuacion se realizara el ejercicio dado en el curso Argentina Programa (segunda etapa) en su 3er modulo. <br>
             <i><b>por motivos de garantizar todo el trabajo posible y necesario, se desabilita en esta pagina el copiar texto (por ende, codigo)</b></i>
             </p>
 
@@ -38,38 +39,48 @@
                 <h5>Terminal</h5>
                 <p>
                     Abrir la Terminal y crear un directorio donde querramos nuestro proyecto. <br>
-                    Comando: <b>ng new task-list</b> para crear el proyecto (App). <abbr class="abbr-curiosity" title="Con 'code .' en la Terminal, abrimos Visual Studio Code usando el directorio donde se encuentra operando nuestra terminal.">(?)</abbr>
+                    Comando: <b>ng new task-list</b> para crear el proyecto (App). 
+                    <abbr class="abbr-curiosity" title="Con 'code .' en la Terminal, abrimos Visual Studio Code usando el directorio donde se encuentra operando nuestra terminal.">(?)</abbr>
                 </p>
                 <h5>Code</h5>
                 <p>
-                    Una vez en Code, abrimos terminal dentro y con el comando <b>ng serve</b> iniciamos la App creada <abbr class="abbr-curiosity" title="Que en principio contendra una Demo de Angular.">(?)</abbr> <abbr class="abbr-caution" title="Encontraremos la App funcionando escribiendo en la URL de un navegador: 'localhost:' mas el puerto que de Code. 'localhost:4200' es el por default de Angular Live Development Server (que fue lo iniciado con el comando indicado).">(?)</abbr>
+                    Una vez en Code, abrimos terminal dentro y con el comando <b>ng serve</b> iniciamos la App creada 
+                    <abbr class="abbr-curiosity" title="Que en principio contendra una Demo de Angular.">(?)</abbr> 
+                    <abbr class="abbr-caution" title="Encontraremos la App funcionando escribiendo en la URL de un navegador: 'localhost:' mas el puerto que de Code. 'localhost:4200' es el por default de Angular Live Development Server (que fue lo iniciado con el comando indicado).">(?)</abbr>
                 </p>
-
             </div>
 
         </div>
 
-        <div class="container border">
-            <header class="padding">
-                <h5>A continuacion se ira mostrando bloque por bloque de manera focalizada, paso a paso, e intentando explicar sobre la marcha, todo el procedimiento para tener nuestra App funcionando:</h5>
+        <div class="border">
+            <div class="margin">
+                <h5>
+                    A continuacion se ira mostrando bloque por bloque de manera focalizada, paso a paso, e intentando explicar sobre la marcha, todo el procedimiento para tener nuestra App funcionando:
+                </h5>
                 <p>
-                    El procedimiento sera ir Creando Componentes, los cuales iremos "nutriendo" de codigo para luego ir entrelazando sus funcionalidades unos con otros.
+                    El procedimiento sera ir Creando Componentes, los cuales iremos "nutriendo" de codigo para luego ir entrelazando sus funcionalidades unos con otros. <br>
+                    <span class="alerta">Dado esto ultimo, tendremos que respetar los nombres de componentes, variables, funciones, de lo contrario al interconectar ninguno encontrara al otro (salvo que indiquemos su nuevo nombre dado por error, acertado al conectar.</span>
                 </p>
-            </header>
-            <div>
                 <p>
-                    Para este proyecto tenemos disponible el CSS global <a href="css/globalstyles.css" target="_blank">aquí</a> que debemos aplicar <abbr class="abbr-caution" title="copiar y pegar a styles.css en carpeta src del proyecto">(?)</abbr> <br><br>
-                        
-                    Borramos el Contenido dentro del Template general en: <b>src/app/app.component.html</b> <abbr class="abbr-curiosity" title="Lo borrado es el contenido de la Demo.">(?)</abbr>
+                    Para este proyecto tenemos disponible el CSS global <a href="css/globalstyles.css" target="_blank">aquí</a> que debemos aplicar 
+                    <abbr class="abbr-caution" title="copiar y pegar a styles.css en carpeta src del proyecto">(?)</abbr> <br><br>                        
+                    Borramos el Contenido dentro del Template general en: <b>src/app/app.component.html</b> 
+                    <abbr class="abbr-curiosity" title="Lo borrado es el contenido de la Demo.">(?)</abbr>
                 </p>
             </div>
+            
+        </div>
 
             <!-- Header Component -->   
+        <div class="border">
             <div class="margin">
                 <h4>Header</h4>
-                <p>Terminal de Code: <b>ng generate component components/header</b> <abbr class="abbr-curiosity" title="Generamos un nuevo Componente llamado header el cual sera generado en la carpeta components.">(?)</abbr></p>
+                <p>
+                    Terminal de Code: <b>ng generate component components/header</b> 
+                    <abbr class="abbr-curiosity" title="Generamos un nuevo Componente llamado header el cual sera generado en la carpeta components.">(?)</abbr>
+                </p>
             </div>
-            <div class="directorio margin">
+            <div class="directorio">
                 <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                 <div class="dir-folder">
                     <ul type="disc">
@@ -84,37 +95,39 @@
                 </div>
             </div>
 
-            <div>
-                <div class="border padding margin">
-                    <p>
-                        header.component.<b>ts</b>: 
-                        
-                        <abbr class="abbr-effect" title="Creamos la variable 'title' (que usaremos de Titulo) en el componente logico.">(?)</abbr>
-                        <abbr class="abbr-caution" title="Arriba de: constructor() { }.">(?)</abbr>
-          
-                    </p>
+            <div class="border padding margin">
+                <p>
+                    header.component.<b>ts</b>: 
+                    
+                    <abbr class="abbr-effect" title="Creamos la variable 'title' (que usaremos de Titulo) en el componente logico.">(?)</abbr>
+                    <abbr class="abbr-caution" title="Arriba de: constructor() { }.">(?)</abbr>
+      
+                </p>
+                <div class="centrado">
                     <pre>
                         <code>
-                            import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit } from '@angular/core';
 
-                            @Component({
-                              selector: 'app-header',
-                              templateUrl: './header.component.html',
-                              styleUrls: ['./header.component.css']
-                            })
-                            export class HeaderComponent implements OnInit {
+    @Component({
+        selector: 'app-header',
+        templateUrl: './header.component.html',
+        styleUrls: ['./header.component.css']
+    })
+    export class HeaderComponent implements OnInit {
                             
-                              <span class="new-code">title:string = 'Task List';</span>
+        <span class="new-code">title:string = 'Task List';</span>
                             
-                              constructor() { }
+        constructor() { }
                             
-                              ngOnInit(): void {
-                              }
+        ngOnInit(): void {
+        }
                             
-                            }                            
+    }                                                        
                         </code>
                     </pre>
                 </div>
+                
+            </div>
 
                 <div class="border padding margin">
                     <p>
@@ -122,9 +135,9 @@
                     </p>
                     <pre>
                         <code>                            
-                            <span class="new-code">&lt;header&gt;</span>
-                                <span class="new-code">&lt;h1&gt;{{title}}&lt;/h1&gt;</span>
-                            <span class="new-code">&lt;/header&gt;</span>
+    <span class="new-code">&lt;header&gt;</span>
+        <span class="new-code">&lt;h1&gt;{{title}}&lt;/h1&gt;</span>
+    <span class="new-code">&lt;/header&gt;</span>
                         </code>
                     </pre>
                 </div>
@@ -136,13 +149,9 @@
                 </div>
 
 
-                
-
-            </div>
-
             <!-- App Component -->
             <div class="padding">
-                <div class="directorio margin">
+                <div class="directorio">
                     <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                     <div class="dir-folder">
                         <ul type="disc">
@@ -157,9 +166,9 @@
                     </p>
                     <pre>
                         <code>
-                            <span class="new-code">&lt;div&gt;</span>
-                                <span class="new-code">&lt;app-header&gt;&lt;/app-header&gt;</span>
-                            <span class="new-code">&lt;/div&gt;</span>               
+    <span class="new-code">&lt;div&gt;</span>
+        <span class="new-code">&lt;app-header&gt;&lt;/app-header&gt;</span>
+    <span class="new-code">&lt;/div&gt;</span>               
                         </code>
                     </pre>
                 </div>
@@ -188,7 +197,7 @@
 
         <!-- Button Component -->
         
-        <div class="container border">
+        <div class="border">
             <h4 class="padding margin">Componente Boton:</h4>
             <div class="padding">
                 <p>
@@ -196,7 +205,7 @@
                 </p>
             </div>
 
-            <div class="directorio margin">
+            <div class="directorio">
                 <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                 <div class="dir-folder">
                     <ul type="disc">
@@ -217,15 +226,15 @@
                 </p>
                 <pre>
                     <code>
-                        &lt;header&gt;
-                        &lt;h1&gt;{{title}}&lt;/h1&gt;
-                        <span class="new-code">&lt;app-button color="green" text="Add Task"&gt;&lt;/app-button&gt;</span>
-                        &lt;/header&gt;
+    &lt;header&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+    <span class="new-code">&lt;app-button color="green" text="Add Task&lt;/app-button&gt;</span>
+    &lt;/header&gt;
                     </code>
                 </pre>
             </div>
             
-            <div class="directorio margin">
+            <div class="directorio">
                 <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                 <div class="dir-folder">
                     <ul type="disc">
@@ -247,7 +256,7 @@
                     </p>
                     <pre>
                         <code>
-                            <span class="new-code">&lt;button class="btn" &#91;ngStyle&#93;="&#123;'background-color': color&#125;"&gt;&#123;&#123;text&#125;&#125;&lt;/button&gt;</span>     
+    <span class="new-code">&lt;button class="btn" &#91;ngStyle&#93;="&#123;'background-color': color&#125;"&gt;&#123;&#123;text&#125;&#125;&lt;/button&gt;</span>     
                         </code>
                     </pre>
                 </div>
@@ -266,24 +275,24 @@
                     </p>
                     <pre>
                         <code>
-                            import { Component, OnInit<span class="new-code">, Input</span> } from '@angular/core';
+    import { Component, OnInit<span class="new-code">, Input</span> } from '@angular/core';
     
-                            @Component({
-                                selector: 'app-button',
-                                templateUrl: './button.component.html',
-                                styleUrls: ['./button.component.css']
-                              })
-                              export class ButtonComponent implements OnInit {
+    @Component({
+        selector: 'app-button',
+        templateUrl: './button.component.html',
+        styleUrls: ['./button.component.css']
+    })
+    export class ButtonComponent implements OnInit {
                                 
-                                <span class="new-code">@Input() text: string = "";</span>
-                                <span class="new-code">@Input() color: string = "";</span>
+        <span class="new-code">@Input() text: string = "";</span>
+        <span class="new-code">@Input() color: string = "";</span>
                                                           
-                                constructor() { }
+        constructor() { }
                               
-                                ngOnInit(): void {
-                                }
+        ngOnInit(): void {
+        }
                               
-                              }
+    }
                         </code>
                     </pre>
                 </div>
@@ -297,28 +306,28 @@
                         </p>
                         <pre>
                             <code>
-                                import { Component, OnInit, Input } from '@angular/core';
+    import { Component, OnInit, Input } from '@angular/core';
         
-                                @Component({
-                                    selector: 'app-button',
-                                    templateUrl: './button.component.html',
-                                    styleUrls: ['./button.component.css']
-                                  })
-                                  export class ButtonComponent implements OnInit {
+    @Component({
+        selector: 'app-button',
+        templateUrl: './button.component.html',
+        styleUrls: ['./button.component.css']
+    })
+    export class ButtonComponent implements OnInit {
                                     
-                                    @Input() text: string = "";
-                                    @Input() color: string = "";
+        @Input() text: string = "";
+        @Input() color: string = "";
                                                               
-                                    constructor() { }
+        constructor() { }
                                   
-                                    ngOnInit(): void {
-                                    }
+        ngOnInit(): void {
+        }
 
-                                    <span class="new-code">onClick(){</span>
-                                        <span class="new-code">this.btnClick.emit();</span>    
-                                    <span class="new-code">}</span>
+        <span class="new-code">onClick(){</span>
+            <span class="new-code">this.btnClick.emit();</span>    
+        <span class="new-code">}</span>
                                   
-                                  }
+    }
                             </code>
                         </pre>
 
@@ -332,7 +341,7 @@
                         <p>button.component.<b>html</b>:</p>
                         <pre>
                             <code>
-                                &lt;button class="btn" [ngStyle]="{'background-color': color}" <span class="new-code">(click)="onClick()"</span>&gt;{{text}}&lt;/button&gt;
+    &lt;button class="btn" [ngStyle]="{'background-color': color}" <span class="new-code">(click)="onClick()"</span>&gt;{{text}}&lt;/button&gt;
                             </code>
                         </pre>
                     </div>
@@ -346,36 +355,36 @@
 
                         <pre>
                             <code>
-                                import { Component, OnInit, Input<span class="new-code">, Output, EventEmitter</span> } from '@angular/core';
+    import { Component, OnInit, Input<span class="new-code">, Output, EventEmitter</span> } from '@angular/core';
         
-                                @Component({
-                                    selector: 'app-button',
-                                    templateUrl: './button.component.html',
-                                    styleUrls: ['./button.component.css']
-                                  })
-                                  export class ButtonComponent implements OnInit {
+    @Component({
+        selector: 'app-button',
+        templateUrl: './button.component.html',
+        styleUrls: ['./button.component.css']
+    })
+    export class ButtonComponent implements OnInit {
                                     
-                                    @Input() text: string = "";
-                                    @Input() color: string = "";
-                                    <span class="new-code">@Output() btnClick = new EventEmitter</span>
+        @Input() text: string = "";
+        @Input() color: string = "";
+        <span class="new-code">@Output() btnClick = new EventEmitter</span>
                                                               
-                                    constructor() { }
+        constructor() { }
                                   
-                                    ngOnInit(): void {
-                                    }
+        ngOnInit(): void {
+        }
 
-                                    onClick(){
-                                        console.log("Click!")    
-                                    }
+        onClick(){
+            console.log("Click!")    
+        }
                                   
-                                  }
+    }
                             </code>
                         </pre>
                     </div>
 
                     <p class="margin">Necesitamos que el Evento de nuestra Funcion llegue al Header:</p>
 
-                    <div class="directorio margin">
+                    <div class="directorio">
                         <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                         <div class="dir-folder">
                             <ul type="disc">
@@ -399,10 +408,10 @@
                         </p>
                         <pre>
                             <code>
-                                &lt;header&gt;
-                                    &lt;h1&gt;{{title}}&lt;/h1&gt;
-                                    &lt;app-button color="green" text="Add Task" <span class="new-code">btnClick)="toogleAddTask()"</span>&gt;&lt;/app-button&gt;
-                                &lt;/header&gt;
+    &lt;header&gt;
+        &lt;h1&gt;{{title}}&lt;/h1&gt;
+        &lt;app-button color="green" text="Add Task" <span class="new-code">btnClick)="toogleAddTask()"</span>&gt;&lt;/app-button&gt;
+    &lt;/header&gt;
                             </code>
                         </pre>
                     </div>
@@ -415,27 +424,27 @@
                         </p>
                         <pre>
                             <code>
-                                import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit } from '@angular/core';
 
-                                @Component({
-                                  selector: 'app-header',
-                                  templateUrl: './header.component.html',
-                                  styleUrls: ['./header.component.css']
-                                })
-                                export class HeaderComponent implements OnInit {
+    @Component({
+        selector: 'app-header',
+        templateUrl: './header.component.html',
+        styleUrls: ['./header.component.css']
+    })
+    export class HeaderComponent implements OnInit {
                                 
-                                  title:string = 'Task List';
+        title:string = 'Task List';
                                 
-                                  constructor() { }
+        constructor() { }
                                 
-                                  ngOnInit(): void {
-                                  }
+        ngOnInit(): void {
+        }
                                 
-                                  <span class="new-code">toogleAddTask(){</span>
-                                    <span class="new-code">console.log("toogleAddTask!");</span>
-                                  <span class="new-code">}</span>                            
+        <span class="new-code">toogleAddTask(){</span>
+            <span class="new-code">console.log("toogleAddTask!");</span>
+        <span class="new-code">}</span>                            
                                     
-                                }
+    }
                             </code>
                         </pre>                        
                     </div>
@@ -475,7 +484,7 @@
             <div class="margin">
                 <h4>Emulador de Base de Datos y pre-base, para la Base de Datos.</h4>
             </div>
-            <div class="directorio margin">
+            <div class="directorio">
                 <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                 <div class="dir-folder">
                     <ul type="disc">
@@ -493,26 +502,26 @@
                 <p>mock-tasks.<b>ts</b>:</p>
                 <pre>
                     <code>
-                        <span class="new-code">export const TASKS = [</span>
-                            <span class="new-code">{</span>
-                            <span class="new-code">id: 1,</span>
-                            <span class="new-code">text: "Terminar primer modulo de Angular",</span>
-                            <span class="new-code">day: "Agosto 5 a las 12:00",</span>
-                            <span class="new-code">reminder: true</span>
-                            <span class="new-code">},</span>
-                            <span class="new-code">{</span>
-                            <span class="new-code">id: 2,</span>
-                            <span class="new-code">text: "Hacer las compras para la cena",</span>
-                            <span class="new-code">day: "Agosto 5 a las 17:00",</span>
-                            <span class="new-code">reminder: true</span>
-                            <span class="new-code">},</span>
-                            <span class="new-code">{</span>
-                            <span class="new-code">id: 3,</span>
-                            <span class="new-code">text: "Investigar sobre Bootstrap",</span>
-                            <span class="new-code">day: "Agosto 5 a las 19:00",</span>
-                            <span class="new-code">reminder: false</span>
-                            <span class="new-code">},</span>
-                        <span class="new-code">]</span>               
+    <span class="new-code">export const TASKS = [</span>
+        <span class="new-code">{</span>
+        <span class="new-code">id: 1,</span>
+        <span class="new-code">text: "Terminar primer modulo de Angular",</span>
+        <span class="new-code">day: "Agosto 5 a las 12:00",</span>
+        <span class="new-code">reminder: true</span>
+        <span class="new-code">},</span>
+        <span class="new-code">{</span>
+        <span class="new-code">id: 2,</span>
+        <span class="new-code">text: "Hacer las compras para la cena",</span>
+        <span class="new-code">day: "Agosto 5 a las 17:00",</span>
+        <span class="new-code">reminder: true</span>
+        <span class="new-code">},</span>
+        <span class="new-code">{</span>
+        <span class="new-code">id: 3,</span>
+        <span class="new-code">text: "Investigar sobre Bootstrap",</span>
+        <span class="new-code">day: "Agosto 5 a las 19:00",</span>
+        <span class="new-code">reminder: false</span>
+        <span class="new-code">},</span>
+    <span class="new-code">]</span>               
                     </code>
                 </pre>
             </div>
@@ -526,15 +535,183 @@
                         <p>Task.<b>ts</b>:</p>
                         <pre>
                             <code>
-                                <span class="new-code">export interface Task {</span>
-                                    <span class="new-code">id?: number;</span>
-                                    <span class="new-code">text: string;</span>
-                                    <span class="new-code">day: string;</span>
-                                    <span class="new-code">reminder: boolean;</span>
-                                <span class="new-code">}</span>                             
+    <span class="new-code">export interface Task {</span>
+        <span class="new-code">id?: number;</span>
+        <span class="new-code">text: string;</span>
+        <span class="new-code">day: string;</span>
+        <span class="new-code">reminder: boolean;</span>
+    <span class="new-code">}</span>                             
                             </code>
                         </pre>
                     </div>
+                </div>
+                <div class="padding">
+                    <p>Importamos la interface:</p>
+                </div>
+                <div class="border">
+                    <div class="padding">
+                        <p>
+                            mock-task.<b>ts</b>:
+                            <abbr class="abbr-curiosity" title="Puedes comprobar que la interface esta funcionando al intentar cambiar el 'true' de 'reminder' por cualquier otra cosa que no sea un boolean, nos dara error el editor cuando no sea un boolean (por ejemplo).">(?)</abbr>
+                        </p>
+                        <pre>
+                            <code>
+        <span class="new-code">import {Task} from "./Task"</span>
+            export const TASKS<span class="new-code">: Task[]</span> = [
+            {
+                id: 1,
+                text: "Terminar primer modulo de Angular",
+                day: "Agosto 5 a las 12:00",
+                reminder: true
+            },
+            {
+                id: 2,
+                text: "Hacer las compras para la cena",
+                day: "Agosto 5 a las 17:00",
+                reminder: true
+            },
+            {
+                id: 3,
+                text: "Investigar sobre Bootstrap",
+                day: "Agosto 5 a las 19:00",
+                reminder: false
+            },
+                            
+        ]      
+                            </code>                                                          
+                        </pre>
+                    </div>
+                </div>            
+            </div>
+        </div>
+
+
+
+        <!-- "Pagina" -->
+        <!-- Git 3 -->
+        <div class="border padding">
+            <h3 class="inline margin">Git</h3>
+            <h5 class="inline"><abbr class="abbr-caution" title="Esto es opcional.">(?)</abbr> <abbr class="abbr-curiosity" title="Puede que sea necesario reiniciar el servidor nuevamente con el comando 'ng serve' tras los siguientes comandos.">(?)</abbr></h5>
+            <p class="margin">
+                Terminal de Code: <br>
+                <b>
+                git add --all <br>
+                git commit -m "Agregar mock de tareas y el interface de las mismas" <br><br>
+                git branch task-list <br>
+                git checkout task-list        
+                </b>
+            </p>
+        </div> 
+
+        <!-- "Pagina" -->
+        <!-- Task List -->
+        <div class="border">
+
+            <div class="padding margin">
+                <h4>Componente para la Lista (de tareas)</h4>
+                <p>Terminal de Code: <b>ng generate component components/tasks</b></p>
+            </div>
+
+            <div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border padding margin">
+                    <p>
+                        app.component.<b>html</b>:
+                        <abbr class="abbr-effect" title="Montamos el Componente Tasks en el Template App.">(?)</abbr>
+                        <abbr class="abbr-curiosity" title="Siempre que montemos un componente en el App, dicho componente recien creado contendra un paragrap con un escrito indicando su nombre y que 'funciona'.">(?)</abbr>
+                    </p>
+                    <pre>
+                        <code>
+    &lt;div class="container"&gt;
+        &lt;app-header&gt;&lt;/app-header&gt;
+        <span class="new-code">&lt;app-tasks&gt;&lt;/app-tasks&gt;</span>             
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>  
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>   
+                <div class="border padding margin">
+                    <p>
+                        tasks.component.<b>ts</b>:
+                        <abbr class="abbr-effect" title="Importamos nuestra Lista de Tareas (mock-tasks) y nuestra Interface. E inicializamos nuestra Inteface como un Array la cual traera las Tareas desde nuestro mock-tasks.">(?)</abbr>
+                    </p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    <span class="new-code">import {Task} from '../../Task'</span>
+    <span class="new-code">import {TASKS} from '../../mock-tasks'</span>                          
+                            
+    @Component({
+        selector: 'app-tasks',
+        templateUrl: './tasks.component.html',
+        styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+        <span class="new-code">tasks: Task[] = TASKS;</span>                              
+                            
+        constructor() { }
+                            
+        ngOnInit(): void {
+        }
+                            
+    }
+                                                        
+                        </code>
+                    </pre>
+                </div>    
+
+                <div class="border padding margin">
+                    <p>
+                        tasks.component.<b>html</b>:
+                    </p>
+                    <pre>
+                        <code>
+    <span class="delete-code">&lt;p&gt;tasks works!&lt;/p&gt;</span>
+    <span class="new-code">&lt;p *ngFor=&quot;let task of tasks&quot;&gt;</span>
+        <span class="new-code">&#123;&#123;task.text&#125;&#125;</span>
+    <span class="new-code">&lt;/p&gt;</span>  
+                        </code>
+                    </pre>
+                </div>  
+
+                <p class="margin">
+                    Queremos que cada Tarea sea una Tarjeta. Entonces crearemos un nuevo Componente para este proposito: <br> <br>
+                    Terminal de Code: <b>ng generate component components/tasks-item</b> <br> <br>
+                    Actualizamos/preparamos la Lista de Tareas (Componente Tasks, Components/Tasks) para que reciba desde Tasks-Item (montamos Tasks-Item en Tasks):
+                    <abbr class="abbr-curiosity" title="Que seria montar nuestras Tarjetas con Tareas individualizadas (una tarea, por tarjeta) en nuestra Lista de Tareas.">(?)</abbr>
+                </p>
+
+                <div class="border padding margin">
+                    <p>
+                        tasks.component.<b>html</b>:
+                    </p>
+                    <pre>
+                        <code>
+    &lt;<span class="new-code">app-tasks-item</span> *ngFor=&quot;let task of tasks&quot;&gt;
+        &#123;&#123;task.text&#125;&#125;
+    &lt;<span class="new-code">/app-tasks-item</span>&gt;
+                        </code>
+                    </pre>
                 </div>
 
                 
