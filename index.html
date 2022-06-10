@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <title>Task List in Angular</title>
+    <title>Tutorial Lista de Tareas en Angular</title>
 </head>
 <body oncopy="return false">
     <section class="container">
@@ -597,8 +597,8 @@
                 <b>
                 git add --all <br>
                 git commit -m "Agregar mock de tareas y el interface de las mismas" <br><br>
-                git branch task-list <br>
-                git checkout task-list        
+                git branch task_list <br>
+                git checkout task_list        
                 </b>
             </p>
         </div> 
@@ -694,12 +694,18 @@
                     </pre>
                 </div>  
 
-                <p class="margin">
+
+                <!-- Tarjetas -->
+                <div class="margin">
+                    <h4>Tarjetas:</h4>
+                <p>
                     Queremos que cada Tarea sea una Tarjeta. Entonces crearemos un nuevo Componente para este proposito: <br> <br>
                     Terminal de Code: <b>ng generate component components/tasks-item</b> <br> <br>
                     Actualizamos/preparamos la Lista de Tareas (Componente Tasks, Components/Tasks) para que reciba desde Tasks-Item (montamos Tasks-Item en Tasks):
                     <abbr class="abbr-curiosity" title="Que seria montar nuestras Tarjetas con Tareas individualizadas (una tarea, por tarjeta) en nuestra Lista de Tareas.">(?)</abbr>
                 </p>
+                </div>
+                
 
                 <div class="border padding margin">
                     <p>
@@ -714,6 +720,125 @@
                     </pre>
                 </div>
 
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks-item</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="margin">
+                    Condicionamos el Tasks-Item con los correspondientes Inputs:
+                </p>
+
+                <div class="border padding margin">
+                    <p>
+                        tasks-item.<b>ts</b>:
+                        <abbr class="abbr-effect" title="Habilitamos el Input (entrada) cuyo nombre sera 'task' que sera del tipo 'Task' que sera 'del tipo de' la Interface creada y por ello la importamos tambien.">(?)</abbr>
+                    </p>                    
+                    <div>
+                        <pre>
+                            <code>
+    import { Component, OnInit<span class="new-code">, Input</span> } from '@angular/core';
+    <span class="new-code">import {Task} from '../../Task'</span>
+
+    @Component({
+        selector: 'app-tasks-item',
+        templateUrl: './tasks-item.component.html',
+        styleUrls: ['./tasks-item.component.css']
+    })
+    export class TasksItemComponent implements OnInit {
+        <span class="new-code">@Input() task: Task = TASKS[0]</span>
+                                
+        constructor() { }
+                                
+        ngOnInit(): void {
+        }
+                                
+    }
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+
+                
+                <p class="alerta">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Dev: Atento a tasks.item.ts. Minuto 38:57.</p>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="margin">
+                    Condicionamos para que el tasks-item montado en tasks.html, cree la cantidad de etiquetas (tasks-item) en el Template de Tasks segun cuantas tareas tengamos:
+                </p>
+
+                <div class="border padding margin">
+                    <p>tasks.component.<b>html</b>:</p>
+                    <pre>
+                        <code>
+    &lt;app-tasks-item *ngFor="let task of tasks" <span class="new-code">[task] = "task"</span>&gt;<span class="delete-code">&#123;&#123;task.text&#125;&#125;</span>&lt;/app-tasks-item&gt;
+                        </code>
+                    </pre>
+                </div>
+
+
+
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks-item</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="margin">
+                    <p>Creamos la Estructura que tendran las Tarjetas:</p>
+                </div>
+                <div class="border padding margin">
+                    <p>tasks-item.component.<b>html</b>:</p>
+                    <pre>
+                        <code>
+    <span class="delete-code">&lt;p&gt;tasks-item works!&lt;/p&gt;</span>
+    <span class="new-code">&lt;div class="task"&gt;</span>
+        <span class="new-code">&lt;h3&gt;&#123;&#123;task.text&#125;&#125;&lt;/h3&gt;</span>
+        <span class="new-code">&lt;p&gt;&#123;&#123;task.text&#125;&#125;&lt;/p&gt;</span>
+    <span class="new-code">&lt;/div&gt;</span>
+                        </code>
+                    </pre>
+                </div>
+                <div class="margin">
+                    <p>
+                        Aplicamos los siguientes estilos a <b>tasks-item.component.css</b>:
+                        <a href="css/tasks-item.component.css" target="_blank">Archivo</a>
+                    </p>
+                </div>
                 
 
             </div>
@@ -722,9 +847,469 @@
         </div>
 
 
+        <!-- "Pagina" -->
+        <!-- Git 3 -->
+        <div class="border padding">
+            <h3 class="inline margin">Git</h3>
+            <h5 class="inline"><abbr class="abbr-caution" title="Esto es opcional.">(?)</abbr> <abbr class="abbr-curiosity" title="Puede que sea necesario reiniciar el servidor nuevamente con el comando 'ng serve' tras los siguientes comandos.">(?)</abbr></h5>
+            <p class="margin">
+                Terminal de Code: <br>
+                <b>
+                git add --all <br>
+                git commit -m "Lista de items" <br><br>   
+                </b>
+            </p>
+        </div> 
+
+        <!-- "Pagina" -->
+        <!-- Fontawesome -->
+        <div class="border padding">
+            <div class="margin">
+                <h5>FontAwesome en Angular</h5>
+                <p>
+                    Usaremos iconos de Fontawesome en nuestra lista de tareas: <br> <br>
+
+                    Como la tecnologia se va actualizando constantemente, en Angular ciertas cosas van cambiando, en este caso el uso de FontAwesome. En el siguiente link encontrara las instrucciones para habilitar (hoy por hoy) FontAwesome en su actual proyecto:
+                    <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">GitHub-FontAwesome</a>
+                </p>
+            </div> 
+            <div class="directorio">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>components</li>
+                            <ul type="disc">
+                                <li>tasks-item</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+            </div>    
+            
+            <div class="border padding margin">
+                <p>tasks-item.component.<b>ts</b>:</p>
+                <pre>
+                    <code>
+    import { Component, OnInit, Input } from '@angular/core';
+    import {Task} from '../../Task'
+    import {TASKS} from '../../mock-tasks'
+    <span class="new-code">import { faTimes } from '@fortawesome/free-solid-svg-icons';</span>    
+    
+    @Component({
+      selector: 'app-tasks-item',
+      templateUrl: './tasks-item.component.html',
+      styleUrls: ['./tasks-item.component.css']
+    })
+    export class TasksItemComponent implements OnInit {
+      @Input() task: Task = TASKS[0]
+      <span class="new-code">faTimes = faTimes;</span>      
+    
+      constructor() { }
+    
+      ngOnInit(): void {
+      }
+    
+    }
+                    </code>
+                </pre>
+            </div>
+
+            <div class="border padding margin">
+                <p>task-item.component.<b>html</b>:</p>
+                <pre>
+                    <code>
+    &lt;div class="task"&gt;
+    &lt;h3&gt;{{task.text}} <span class="new-code">&lt;fa-icon &#91;icon&#93;="faTimes" [ngStyle] = "{'color':'red'}"&gt;</span>&lt;/h3&gt;
+        &lt;p&gt;{{task.day}}&lt;/p&gt;
+    &lt;/div&gt;                    
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <!-- "Pagina" -->
+        <!-- Git 4 -->
+        <div class="border padding">
+            <h3 class="inline margin">Git</h3>
+            <h5 class="inline"><abbr class="abbr-caution" title="Esto es opcional.">(?)</abbr> <abbr class="abbr-curiosity" title="Puede que sea necesario reiniciar el servidor nuevamente con el comando 'ng serve' tras los siguientes comandos.">(?)</abbr></h5>
+            <p class="margin">
+                Terminal de Code: <br>
+                <b>
+                git add --all <br>
+                git commit -m "Componente de lista de items" <br><br> 
+                
+                git checkout master <br>
+                git merge task_list <br> <br>
+
+                git branch server_task <br>
+                git checkout server_task
+                </b>
+            </p>
+        </div> 
+
+        <div class="border">
+            <div class="margin">
+                <h5>Servicio de la Lista de Tareas:</h5>
+                <p>
+                    Proseguimos con la creacion de un Servicio en Angular el cual usaremos para nuestros datos en la Lista de Tareas. Por ahora nuestras tareas se encuentran en Registros dentro de un Array el cual no puede ser modificado ni recivir nuevas tareas (este Array lo creamos para estructurar tempranamente ciertos aspectos). <br> <br>
+                    Terminal en Code: <b>ng generate service service/task</b> <br> <br>
+                    Ahora haremos que nuestros archivos Mock e Interface sean manejados por el servicio:
+                </p>
+            </div>
+            <div class="directorio">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>components</li>
+                            <ul type="disc">
+                                <li>tasks</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="border padding margin">
+                <p>task.component.<b>ts</b>:</p>
+                <pre>
+                    <code>
+    import { Component, OnInit } from '@angular/core';
+    <span class="delete-code">import {Task} from '../../Task'</span>
+    <span class="delete-code">import {TASKS} from '../../mock-tasks'</span>
+    
+    @Component({
+      selector: 'app-tasks',
+      templateUrl: './tasks.component.html',
+      styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+      tasks: Task[] = TASKS;
+    
+      constructor() { }
+    
+      ngOnInit(): void {
+      }
+    
+    }     
+                    </code>
+                </pre>
+
+            </div>
+
+            <div class="directorio">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>service</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border padding margin">
+                <p>task.service.<b>ts</b>:</p>
+                <pre>
+                    <code>
+    import { Injectable } from '@angular/core';
+    <span class="new-code">import {Task} from '../Task'</span>
+    <span class="new-code">import {TASKS} from '../mock-tasks'</span>
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+    
+      constructor() { }
+    }  
+                    </code>
+                </pre>
+
+            </div>
+
+            <div class="margin">
+                <p>
+                    Devolucion de tareas:
+                </p>
+            </div>
+            <div class="border padding margin">
+                <p>task.service.<b>ts</b>:</p>
+                <pre>
+                    <code>
+    import { Injectable } from '@angular/core';
+    import {Task} from '../Task'
+    import {TASKS} from '../mock-tasks'
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+    
+      constructor() { }
+
+      <span class="new-code">getTask(){</span>
+        <span class="new-code">return TASKS</span>
+      <span class="new-code">}</span>
+    }  
+                    </code>
+                </pre>
+            </div>
+
+            <div class="margin">
+                <p>
+                    Condicionamos la Logica de nuestro Componente Task para que opere con nuestro Servicio:
+                </p>
+            </div>
+
+            <div class="directorio">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>components</li>
+                            <ul type="disc">
+                                <li>tasks</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border padding margin">
+                <p>tasks.component.<b>ts</b>:</p>
+                <pre>
+                    <code>
+    import { Component, OnInit } from '@angular/core';
+    <span class="new-code">import { TaskService } from '../../service/task.service';</span>
+    <span class="new-code">import {Task} from '../../Task'</span>
+    
+    @Component({
+      selector: 'app-tasks',
+      templateUrl: './tasks.component.html',
+      styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+        <span class="new-code">tasks: Task[] = [];</span>        
+    
+        constructor(<span class="new-code">private taskService: TaskService</span>) { }
+    
+        <span class="new-code">ngOnInit(): void {</span>
+        <span class="new-code">this.tasks = this.taskService.getTasks();</span>
+        <span class="new-code">}</span>    
+        
+    }
+            
+                    </code>
+                </pre>            
+            </div>
+
+            <div class="margin">
+                <p>
+                    Importaremos una Libreria que nos permitira tener nuestro Servicio de manera Asincronica (ahora de momento es Sincronico):
+                </p>
+            </div>
+
+            <div class="directorio">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>service</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border padding margin">
+                <p>task.service.<b>ts</b>:</p>
+                <pre>
+                    <code>
+    import { Injectable } from '@angular/core';
+    <span class="new-code">import {Observable, of} from 'rxjs'</span>    
+    import {Task} from '../Task'
+    import {TASKS} from '../mock-tasks'
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+    
+      constructor() { }
+    
+      getTasks():<span class="new-code">Observable&lt;</span>Task[]<span class="new-code">&gt;</span>{
+        <span class="new-code">const tasks = of(TASKS);</span>
+        return TASKS
+      }
+    }
+                    </code>
+                </pre>            
+            </div>
+
+            <div class="directorio">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                <div class="dir-folder">
+                    <ul type="disc">
+                        <li>app</li>
+                        <ul type="disc">
+                            <li>components</li>
+                            <ul type="disc">
+                                <li>tasks</li>
+                            </ul>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border padding margin">
+                <p>tasks.component.<b>ts</b>:</p>
+                <pre>
+                    <code>
+    import { Component, OnInit } from '@angular/core';
+    import { TaskService } from '../../service/task.service';
+    import {Task} from '../../Task'
+    
+    @Component({
+      selector: 'app-tasks',
+      templateUrl: './tasks.component.html',
+      styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+      tasks: Task[] = [];
+    
+      constructor(private taskService: TaskService) { }
+    
+      ngOnInit(): void {
+        <span class="delete-code">this.tasks = this.taskService.getTasks();</span>
+        <span class="new-code">this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks));</span>
+      }
+    
+    }
+                    </code>
+                </pre>            
+            </div>
+
+            <!-- JSON -->
+            <div class="margin">
+                <h5>JSON: Emulador de Base de Datos.</h5>
+                <p>Terminal de Code: <b>npm install json-server</b></p>
+            </div>
+
+            <div class="directorio">
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">task-list</p>
+                <div class="dir-folder">
+                </div>
+            </div>
+
+            <div class="border padding margin">
+                <p>package.<b>json</b></p>
+                <pre>
+                    <code>
+    {
+        "name": "task-list",
+        "version": "0.0.0",
+        "scripts": {
+          "ng": "ng",
+          "start": "ng serve",
+          "build": "ng build",
+          "watch": "ng build --watch --configuration development",
+          "test": "ng test"<span class="new-code">,</span>
+          <span class="new-code">"server": "json-server --watch db.json --port 5000"</span>          
+        },
+        "private": true,
+        "dependencies": {
+          "@angular/animations": "~13.3.0",
+          "@angular/common": "~13.3.0",
+          "@angular/compiler": "~13.3.0",
+          "@angular/core": "~13.3.0",
+          "@angular/forms": "~13.3.0",
+          "@angular/platform-browser": "~13.3.0",
+          "@angular/platform-browser-dynamic": "~13.3.0",
+          "@angular/router": "~13.3.0",
+          "@fortawesome/angular-fontawesome": "^0.10.2",
+          "@fortawesome/fontawesome-svg-core": "^6.1.1",
+          "@fortawesome/free-solid-svg-icons": "^6.1.1",
+          "angular-font-awesome": "^3.1.2",
+          "font-awesome": "^4.7.0",
+          "json-server": "^0.17.0",
+          "rxjs": "~7.5.0",
+          "tslib": "^2.3.0",
+          "zone.js": "~0.11.4"
+        },
+        "devDependencies": {
+          "@angular-devkit/build-angular": "~13.3.2",
+          "@angular/cli": "~13.3.2",
+          "@angular/compiler-cli": "~13.3.0",
+          "@types/jasmine": "~3.10.0",
+          "@types/node": "^12.11.1",
+          "jasmine-core": "~4.0.0",
+          "karma": "~6.3.0",
+          "karma-chrome-launcher": "~3.1.0",
+          "karma-coverage": "~2.1.0",
+          "karma-jasmine": "~4.0.0",
+          "karma-jasmine-html-reporter": "~1.7.0",
+          "typescript": "~4.6.2"
+        }
+      }
+                    </code>
+                </pre>            
+            </div>
+
+            <div class="margin">
+                <p>Creamos el archivo <b>db.json</b>.</p>
+            </div>
+
+            <div class="border padding margin">
+                <p>db.<b>json</b>:</p>
+                <pre>
+                    <code>
+    <span class="new-code">{</span>
+        <span class="new-code">"tasks":[</span>
+            <span class="new-code">{</span>
+                <span class="new-code">"id":1,</span>
+                <span class="new-code">"text":"Terminar primer modulo de Angular",</span>
+                <span class="new-code">"day":"Agosto 5 a las 12:00",</span>
+                <span class="new-code">"reminder": true</span>
+            <span class="new-code">},</span>
+            <span class="new-code">{</span>
+                <span class="new-code">"id":2,</span>
+                <span class="new-code">"text":"Hacer las compras para la cena",</span>
+                <span class="new-code">"day":"Agosto 5 a las 17:00",</span>
+                <span class="new-code">"reminder": true</span>
+            <span class="new-code">},</span>
+            <span class="new-code">{</span>
+                <span class="new-code">"id":3,</span>
+                <span class="new-code">"text":"Investigar sobre Boostrap",</span>
+                <span class="new-code">"day":"Agosto 5 a las 19:00",</span>
+                <span class="new-code">"reminder": false</span>
+            <span class="new-code">}</span> 
+        <span class="new-code">]</span>  
+    <span class="new-code">}</span>  
+                    </code>
+                </pre>            
+            </div>
+
+            <div class="margin">
+                <p>Terminal de Code: <b>npm run server</b></p>
+            </div>
+            
+            <!-- Hasta 1:05 hora visto, aprox. -->
+
+
+        </div>
+
+
+
 
 
             
     </section>
+
+    <!-- Ideas. Para la APP de esta misma pagina, tal cual GrassHopper, palabras claves como Registro, Array, sean precionables para explicar tal concepto en programacion. -->
 </body>
 </html>
