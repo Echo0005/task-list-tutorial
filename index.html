@@ -166,7 +166,7 @@
                     </p>
                     <pre>
                         <code>
-    <span class="new-code">&lt;div&gt;</span>
+    <span class="new-code">&lt;div class="container"&gt;</span>
         <span class="new-code">&lt;app-header&gt;&lt;/app-header&gt;</span>
     <span class="new-code">&lt;/div&gt;</span>               
                         </code>
@@ -228,7 +228,7 @@
                     <code>
     &lt;header&gt;
     &lt;h1&gt;{{title}}&lt;/h1&gt;
-    <span class="new-code">&lt;app-button color="green" text="Add Task&lt;/app-button&gt;</span>
+    <span class="new-code">&lt;app-button color=&quot;green&quot; text=&quot;Add Task&quot;&lt;/app-button&gt;</span>
     &lt;/header&gt;
                     </code>
                 </pre>
@@ -374,7 +374,7 @@
         }
 
         onClick(){
-            console.log("Click!")    
+            this.btnClick.emit();  
         }
                                   
     }
@@ -410,7 +410,7 @@
                             <code>
     &lt;header&gt;
         &lt;h1&gt;{{title}}&lt;/h1&gt;
-        &lt;app-button color="green" text="Add Task" <span class="new-code">btnClick)="toogleAddTask()"</span>&gt;&lt;/app-button&gt;
+        &lt;app-button color="green" text="Add Task" <span class="new-code">&#40;btnClick&#41;="toogleAddTask()"</span>&gt;&lt;/app-button&gt;
     &lt;/header&gt;
                             </code>
                         </pre>
@@ -504,22 +504,22 @@
                     <code>
     <span class="new-code">export const TASKS = [</span>
         <span class="new-code">{</span>
-        <span class="new-code">id: 1,</span>
-        <span class="new-code">text: "Terminar primer modulo de Angular",</span>
-        <span class="new-code">day: "Agosto 5 a las 12:00",</span>
-        <span class="new-code">reminder: true</span>
+            <span class="new-code">id: 1,</span>
+            <span class="new-code">text: "Terminar primer modulo de Angular",</span>
+            <span class="new-code">day: "Agosto 5 a las 12:00",</span>
+            <span class="new-code">reminder: true</span>
         <span class="new-code">},</span>
         <span class="new-code">{</span>
-        <span class="new-code">id: 2,</span>
-        <span class="new-code">text: "Hacer las compras para la cena",</span>
-        <span class="new-code">day: "Agosto 5 a las 17:00",</span>
-        <span class="new-code">reminder: true</span>
+            <span class="new-code">id: 2,</span>
+            <span class="new-code">text: "Hacer las compras para la cena",</span>
+            <span class="new-code">day: "Agosto 5 a las 17:00",</span>
+            <span class="new-code">reminder: true</span>
         <span class="new-code">},</span>
         <span class="new-code">{</span>
-        <span class="new-code">id: 3,</span>
-        <span class="new-code">text: "Investigar sobre Bootstrap",</span>
-        <span class="new-code">day: "Agosto 5 a las 19:00",</span>
-        <span class="new-code">reminder: false</span>
+            <span class="new-code">id: 3,</span>
+            <span class="new-code">text: "Investigar sobre Bootstrap",</span>
+            <span class="new-code">day: "Agosto 5 a las 19:00",</span>
+            <span class="new-code">reminder: false</span>
         <span class="new-code">},</span>
     <span class="new-code">]</span>               
                     </code>
@@ -557,7 +557,7 @@
                         <pre>
                             <code>
         <span class="new-code">import {Task} from "./Task"</span>
-            export const TASKS<span class="new-code">: Task[]</span> = [
+        export const TASKS<span class="new-code">: Task[]</span> = [
             {
                 id: 1,
                 text: "Terminar primer modulo de Angular",
@@ -741,14 +741,15 @@
 
                 <div class="border padding margin">
                     <p>
-                        tasks-item.<b>ts</b>:
+                        tasks-item.component.<b>ts</b>:
                         <abbr class="abbr-effect" title="Habilitamos el Input (entrada) cuyo nombre sera 'task' que sera del tipo 'Task' que sera 'del tipo de' la Interface creada y por ello la importamos tambien.">(?)</abbr>
                     </p>                    
                     <div>
                         <pre>
                             <code>
     import { Component, OnInit<span class="new-code">, Input</span> } from '@angular/core';
-    <span class="new-code">import {Task} from '../../Task'</span>
+    <span class="new-code">import {Task} from '../../Task';</span>
+    <span class="new-code">import {TASKS} from '../../mock-tasks'</span>
 
     @Component({
         selector: 'app-tasks-item',
@@ -771,7 +772,6 @@
 
 
                 
-                <p class="alerta">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Dev: Atento a tasks.item.ts. Minuto 38:57.</p>
                 <div class="directorio">
                     <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
                     <div class="dir-folder">
@@ -828,7 +828,7 @@
     <span class="delete-code">&lt;p&gt;tasks-item works!&lt;/p&gt;</span>
     <span class="new-code">&lt;div class="task"&gt;</span>
         <span class="new-code">&lt;h3&gt;&#123;&#123;task.text&#125;&#125;&lt;/h3&gt;</span>
-        <span class="new-code">&lt;p&gt;&#123;&#123;task.text&#125;&#125;&lt;/p&gt;</span>
+        <span class="new-code">&lt;p&gt;&#123;&#123;task.day&#125;&#125;&lt;/p&gt;</span>
     <span class="new-code">&lt;/div&gt;</span>
                         </code>
                     </pre>
@@ -921,7 +921,7 @@
                 <pre>
                     <code>
     &lt;div class="task"&gt;
-    &lt;h3&gt;{{task.text}} <span class="new-code">&lt;fa-icon &#91;icon&#93;="faTimes" [ngStyle] = "{'color':'red'}"&gt;</span>&lt;/h3&gt;
+    &lt;h3&gt;{{task.text}} <span class="new-code">&lt;fa-icon &#91;icon&#93;="faTimes" [ngStyle] = "{'color':'red'}"&gt;&lt;/fa-icon&gt;</span>&lt;/h3&gt;
         &lt;p&gt;{{task.day}}&lt;/p&gt;
     &lt;/div&gt;                    
                     </code>
@@ -1051,7 +1051,7 @@
     
       constructor() { }
 
-      <span class="new-code">getTask(){</span>
+      <span class="new-code">getTasks(){</span>
         <span class="new-code">return TASKS</span>
       <span class="new-code">}</span>
     }  
@@ -1142,9 +1142,10 @@
     
       constructor() { }
     
-      getTasks():<span class="new-code">Observable&lt;</span>Task[]<span class="new-code">&gt;</span>{
+      getTasks()<span class="new-code">:Observable&lt;Task[]&gt;</span>{
         <span class="new-code">const tasks = of(TASKS);</span>
-        return TASKS
+        <span class="delete-code">return TASKS</span>
+        <span class="new-code">return tasks</span>
       }
     }
                     </code>
@@ -1201,7 +1202,7 @@
             </div>
 
             <div class="directorio">
-                <i class="fa fa-folder icon-folder"></i> <p class="inline">task-list</p>
+                <i class="fa fa-folder icon-folder"></i> <p class="inline">task-list (raiz del proyecto)</p>
                 <div class="dir-folder">
                 </div>
             </div>
