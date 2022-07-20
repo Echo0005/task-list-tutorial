@@ -19,10 +19,10 @@
             <h1>Lista de tareas creada con Angular</h1>
             <p>
                 A continuacion se realizara el ejercicio dado en el curso Argentina Programa (segunda etapa) en su 3er modulo. <br>
-            <i><b>por motivos de garantizar todo el trabajo posible y necesario, se desabilita en esta pagina el copiar texto (por ende, codigo)</b></i>
+            <i><b>Por motivos de garantizar todo el trabajo posible y necesario, se desabilita en esta pagina el copiar texto (por ende, codigo).</b></i>
             </p>
 
-            <div>
+            <div class="indicacion">
                 <p class="abbr-effect inline">(?) Efecto</p>
                 <p class="abbr-caution inline">(?) Indicacion</p>
                 <p class="abbr-curiosity inline">(?) Curiosidad o Tip</p>
@@ -59,14 +59,14 @@
                 </h5>
                 <p>
                     El procedimiento sera ir Creando Componentes, los cuales iremos "nutriendo" de codigo para luego ir entrelazando sus funcionalidades unos con otros. <br>
-                    <span class="alerta">Dado esto ultimo, tendremos que respetar los nombres de componentes, variables, funciones, de lo contrario al interconectar ninguno encontrara al otro (salvo que indiquemos su nuevo nombre dado por error, acertado al conectar.</span>
-                </p>
-                <p>
+                    <span class="alerta">Dado esto ultimo, tendremos que respetar los nombres de componentes, variables, funciones, de lo contrario al interconectar ninguno encontrara al otro &#40;salvo que indiquemos su nuevo nombre dado por error, acertado al conectar&#41;.</span>
+                    <br><br>
                     Para este proyecto tenemos disponible el CSS global <a href="css/globalstyles.css" target="_blank">aquí</a> que debemos aplicar 
                     <abbr class="abbr-caution" title="copiar y pegar a styles.css en carpeta src del proyecto">(?)</abbr> <br><br>                        
                     Borramos el Contenido dentro del Template general en: <b>src/app/app.component.html</b> 
                     <abbr class="abbr-curiosity" title="Lo borrado es el contenido de la Demo.">(?)</abbr>
                 </p>
+
             </div>
             
         </div>
@@ -95,8 +95,8 @@
                 </div>
             </div>
 
-            <div class="border padding margin">
-                <p>
+            <div class="border margin">
+                <p class="p-pre">
                     header.component.<b>ts</b>: 
                     
                     <abbr class="abbr-effect" title="Creamos la variable 'title' (que usaremos de Titulo) en el componente logico.">(?)</abbr>
@@ -129,8 +129,8 @@
                 
             </div>
 
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         header.component.<b>html</b>: <abbr class="abbr-effect" title="Llamamos en el Template (.html) de Header a la variable 'title' del componente logico (.ts).">(?)</abbr>
                     </p>
                     <pre>
@@ -142,8 +142,8 @@
                     </pre>
                 </div>
 
-                <div class="border padding margin">
-                    <p class="margin-zero">
+                <div class="border margin">
+                    <p class="p-solo">
                         header.component.<b>css</b>: Para los estilos propios del Componente 'Header' usaremos <a href="/css/header.component.css" target="_blank">estos</a>.
                     </p>                      
                 </div>
@@ -160,8 +160,8 @@
                     </div>
                 </div>
     
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         app.component.<b>html</b>: <abbr class="abbr-effect" title="Montamos el componente Header en el Template (HTML) del App. En este caso el HTML Header.Component es montado en el HTML App.Component.">(?)</abbr>
                     </p>
                     <pre>
@@ -199,8 +199,8 @@
         
         <div class="border">
             <h4 class="padding margin">Componente Boton:</h4>
-            <div class="padding">
-                <p>
+            <div>
+                <p class="p-pre">
                     Terminal de Code: <b>ng generate component components/button</b> <abbr class="abbr-effect" title="Crearemos el Componente que hara de Boton.">(?)</abbr>
                 </p>
             </div>
@@ -220,8 +220,8 @@
                 </div>
             </div>
 
-            <div class="border padding margin">
-                <p>
+            <div class="border margin">
+                <p class="p-pre">
                     header.component.<b>html</b>: <abbr class="abbr-effect" title="Montaremos el modulo del Boton en el modulo Header. Al mismo tiempo que le asignamos un Color y un Texto.">(?)</abbr>
                 </p>
                 <pre>
@@ -250,9 +250,9 @@
             </div>
 
             <div>
-                <div class="border padding margin">
-                    <p>
-                        button.component.<b>html</b>: <abbr class="abbr-effect" title="Al template de Button le agregamos un Boton y con estilo del Style Global.">(?)</abbr> <abbr class="abbr-curiosity" title="&#123;&#123;text&#125;&#125; sera la variable que asignaremos luego en el button.component.ts al igual que la direccion de &#91;ngStyle&#93; para el color.">(?)</abbr> <abbr class="abbr-caution" title="&#91;ngStyle&#93;, respetar la mayuscula.">(?)</abbr>
+                <div class="border margin">
+                    <p class="p-pre">
+                        button.component.<b>html</b>: <abbr class="abbr-effect" title="Al template de Button le agregamos un Boton y con estilo del Style Global (.btn en el .css).">(?)</abbr> <abbr class="abbr-curiosity" title="&#123;&#123;text&#125;&#125; sera la variable que asignaremos luego en el button.component.ts al igual que la direccion de &#91;ngStyle&#93; para el color.">(?)</abbr> <abbr class="abbr-caution" title="&#91;ngStyle&#93;, respetar la mayuscula.">(?)</abbr>
                     </p>
                     <pre>
                         <code>
@@ -263,14 +263,14 @@
 
                 <div class="margin">
                     <p class="margin-zero">
-                        Ahora tenemos que indicar que el Template (HTML) del Button reciba datos del Template Header. <abbr class="abbr-curiosity" title="el color=&quot;green&quot; text=&quot;Add Task&quot; .">(?)</abbr>
+                        Ahora tenemos que indicar que el Template (HTML) del Button reciba datos del Template Header. <abbr class="abbr-curiosity" title="El color=&quot;green&quot; text=&quot;Add Task&quot; .">(?)</abbr>
                     </p>
                 </div>
 
                 
 
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         button.component.<b>ts</b>:
                     </p>
                     <pre>
@@ -297,9 +297,9 @@
                     </pre>
                 </div>
 
-                <div class="padding">
-                    <p>Crearemos una Funcion para tomar el Click de nuestro boton:</p>
-                    <div class="border padding margin">
+                <div>
+                    <p class="p-pre">Crearemos una Funcion para tomar el Click de nuestro boton:</p>
+                    <div class="border margin">
                         <p class="margin">
                             button.component.<b>ts</b>:
                             <abbr class="abbr-curiosity" title="Debug: en las '{}' de onClick podemos colocar console.log&#40;'menseje deseado'&#41; para que emita en consola a modo de verificar que este funcionando cuando le hagamos click.">(?)</abbr>
@@ -337,8 +337,8 @@
 
                     <p class="margin">Y agregamos esta Funcion a la etiqueta button del Template (.html):</p>
 
-                    <div class="border padding margin">
-                        <p>button.component.<b>html</b>:</p>
+                    <div class="border margin">
+                        <p class="p-pre">button.component.<b>html</b>:</p>
                         <pre>
                             <code>
     &lt;button class="btn" [ngStyle]="{'background-color': color}" <span class="new-code">(click)="onClick()"</span>&gt;{{text}}&lt;/button&gt;
@@ -349,9 +349,9 @@
 
                     <p class="margin">Queremos que nuestra Funcion lleve informacion hacia el Header. Proseguimos con los Outputs:</p>
 
-                    <div class="border padding margin">
+                    <div class="border margin">
 
-                        <p>button.component.<b>ts</b>: <abbr class="abbr-effect" title="Esta funcion emitira un Evento.">(?)</abbr></p>   
+                        <p class="p-pre">button.component.<b>ts</b>: <abbr class="abbr-effect" title="Esta funcion emitira un Evento.">(?)</abbr></p>   
 
                         <pre>
                             <code>
@@ -400,8 +400,8 @@
                     </div>
                     
 
-                    <div class="border padding margin">
-                        <p>
+                    <div class="border margin">
+                        <p class="p-pre">
                             header.component.<b>html</b>: 
                             <abbr class="abbr-effect" title="Cuando se resiva nuestra accion (btnClick) hara llamado a la funcion toogleAddTask() que crearemos en el .TS de Header.">(?)</abbr>
                             <abbr class="abbr-caution" title="Recordar que el btnClick viene de Salida desde el Componente Button. Dicho queda por si alguien se perdio mentalmente en la conectividad de los asuntos.">(?)</abbr>
@@ -416,8 +416,8 @@
                         </pre>
                     </div>
 
-                    <div class="border padding margin">
-                        <p>
+                    <div class="border margin">
+                        <p class="p-pre">
                             header.component.<b>ts</b>:
                             <abbr class="abbr-caution" title="Desde el Template (.html) de Button envia hacia la Logica (.ts) del mismo, para luego enviar al Template de Header, para luego desde este ultimo, enviar a la Logica de Header nuestra consulta, nuestro 'click'.">(?)</abbr>
                             <abbr class="abbr-curiosity" title="Debug: toogleAddTask(){console.log('toogleAddTask!');} , o sea, podemos usar el nombre de la funcion como mensaje a enviar a consola para facilitar identificacion de funcionamientos.">(?)</abbr>
@@ -448,14 +448,8 @@
                             </code>
                         </pre>                        
                     </div>
-
-
-                </div>
-
-
-                                
+                </div>                                
             </div>
-
 
         </div>
 
@@ -498,8 +492,8 @@
                     <abbr class="abbr-effect" title="Usaremos este archivo de base de datos temporal.">(?)</abbr>
                 </p>
             </div>
-            <div class="border padding margin">
-                <p>mock-tasks.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">mock-tasks.<b>ts</b>:</p>
                 <pre>
                     <code>
     <span class="new-code">export const TASKS = [</span>
@@ -531,8 +525,8 @@
                     <abbr class="abbr-effect" title="Usaremos este archivo de interfase de la base de datos temporal.">(?)</abbr>
                 </p>
                 <div class="border">
-                    <div class="padding">
-                        <p>Task.<b>ts</b>:</p>
+                    <div>
+                        <p class="p-pre">Task.<b>ts</b>:</p>
                         <pre>
                             <code>
     <span class="new-code">export interface Task {</span>
@@ -545,39 +539,39 @@
                         </pre>
                     </div>
                 </div>
-                <div class="padding">
-                    <p>Importamos la interface:</p>
+                <div>
+                    <p class="p-pre">Importamos la interface:</p>
                 </div>
                 <div class="border">
-                    <div class="padding">
-                        <p>
+                    <div>
+                        <p class="p-pre">
                             mock-task.<b>ts</b>:
                             <abbr class="abbr-curiosity" title="Puedes comprobar que la interface esta funcionando al intentar cambiar el 'true' de 'reminder' por cualquier otra cosa que no sea un boolean, nos dara error el editor cuando no sea un boolean (por ejemplo).">(?)</abbr>
                         </p>
                         <pre>
                             <code>
-        <span class="new-code">import {Task} from "./Task"</span>
-        export const TASKS<span class="new-code">: Task[]</span> = [
-            {
-                id: 1,
-                text: "Terminar primer modulo de Angular",
-                day: "Agosto 5 a las 12:00",
-                reminder: true
-            },
-            {
-                id: 2,
-                text: "Hacer las compras para la cena",
-                day: "Agosto 5 a las 17:00",
-                reminder: true
-            },
-            {
-                id: 3,
-                text: "Investigar sobre Bootstrap",
-                day: "Agosto 5 a las 19:00",
-                reminder: false
-            },
-                            
-        ]      
+    <span class="new-code">import {Task} from "./Task"</span>
+    export const TASKS<span class="new-code">: Task[]</span> = [
+        {
+            id: 1,
+            text: "Terminar primer modulo de Angular",
+            day: "Agosto 5 a las 12:00",
+            reminder: true
+        },
+        {
+            id: 2,
+            text: "Hacer las compras para la cena",
+            day: "Agosto 5 a las 17:00",
+            reminder: true
+        },
+        {
+            id: 3,
+            text: "Investigar sobre Bootstrap",
+            day: "Agosto 5 a las 19:00",
+            reminder: false
+        },
+                                
+    ]      
                             </code>                                                          
                         </pre>
                     </div>
@@ -621,8 +615,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         app.component.<b>html</b>:
                         <abbr class="abbr-effect" title="Montamos el Componente Tasks en el Template App.">(?)</abbr>
                         <abbr class="abbr-curiosity" title="Siempre que montemos un componente en el App, dicho componente recien creado contendra un paragrap con un escrito indicando su nombre y que 'funciona'.">(?)</abbr>
@@ -650,8 +644,8 @@
                         </ul>
                     </div>
                 </div>   
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         tasks.component.<b>ts</b>:
                         <abbr class="abbr-effect" title="Importamos nuestra Lista de Tareas (mock-tasks) y nuestra Interface. E inicializamos nuestra Inteface como un Array la cual traera las Tareas desde nuestro mock-tasks.">(?)</abbr>
                     </p>
@@ -680,8 +674,8 @@
                     </pre>
                 </div>    
 
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         tasks.component.<b>html</b>:
                     </p>
                     <pre>
@@ -698,7 +692,7 @@
                 <!-- Tarjetas -->
                 <div class="margin">
                     <h4>Tarjetas:</h4>
-                <p>
+                <p class="p-pre">
                     Queremos que cada Tarea sea una Tarjeta. Entonces crearemos un nuevo Componente para este proposito: <br> <br>
                     Terminal de Code: <b>ng generate component components/tasks-item</b> <br> <br>
                     Actualizamos/preparamos la Lista de Tareas (Componente Tasks, Components/Tasks) para que reciba desde Tasks-Item (montamos Tasks-Item en Tasks):
@@ -707,8 +701,8 @@
                 </div>
                 
 
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         tasks.component.<b>html</b>:
                     </p>
                     <pre>
@@ -739,8 +733,8 @@
                     Condicionamos el Tasks-Item con los correspondientes Inputs:
                 </p>
 
-                <div class="border padding margin">
-                    <p>
+                <div class="border margin">
+                    <p class="p-pre">
                         tasks-item.component.<b>ts</b>:
                         <abbr class="abbr-effect" title="Habilitamos el Input (entrada) cuyo nombre sera 'task' que sera del tipo 'Task' que sera 'del tipo de' la Interface creada y por ello la importamos tambien.">(?)</abbr>
                     </p>                    
@@ -787,12 +781,12 @@
                     </div>
                 </div>
 
-                <p class="margin">
+                <p class="p-pre">
                     Condicionamos para que el tasks-item montado en tasks.html, cree la cantidad de etiquetas (tasks-item) en el Template de Tasks segun cuantas tareas tengamos:
                 </p>
 
-                <div class="border padding margin">
-                    <p>tasks.component.<b>html</b>:</p>
+                <div class="border margin">
+                    <p class="p-pre">tasks.component.<b>html</b>:</p>
                     <pre>
                         <code>
     &lt;app-tasks-item *ngFor="let task of tasks" <span class="new-code">[task] = "task"</span>&gt;<span class="delete-code">&#123;&#123;task.text&#125;&#125;</span>&lt;/app-tasks-item&gt;
@@ -818,11 +812,11 @@
                     </div>
                 </div>
 
-                <div class="margin">
-                    <p>Creamos la Estructura que tendran las Tarjetas:</p>
+                <div>
+                    <p class="p-pre">Creamos la Estructura que tendran las Tarjetas:</p>
                 </div>
-                <div class="border padding margin">
-                    <p>tasks-item.component.<b>html</b>:</p>
+                <div class="border margin">
+                    <p class="p-pre">tasks-item.component.<b>html</b>:</p>
                     <pre>
                         <code>
     <span class="delete-code">&lt;p&gt;tasks-item works!&lt;/p&gt;</span>
@@ -867,8 +861,8 @@
             <div class="margin">
                 <h5>FontAwesome en Angular</h5>
                 <p>
-                    Usaremos iconos de Fontawesome en nuestra lista de tareas: <br> <br>
-
+                    Usaremos iconos de Fontawesome en nuestra lista de tareas:
+                    <br><br>
                     Como la tecnologia se va actualizando constantemente, en Angular ciertas cosas van cambiando, en este caso el uso de FontAwesome. En el siguiente link encontrara las instrucciones para habilitar (hoy por hoy) FontAwesome en su actual proyecto:
                     <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">GitHub-FontAwesome</a>
                 </p>
@@ -888,8 +882,8 @@
                 </div>
             </div>    
             
-            <div class="border padding margin">
-                <p>tasks-item.component.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">tasks-item.component.<b>ts</b>:</p>
                 <pre>
                     <code>
     import { Component, OnInit, Input } from '@angular/core';
@@ -916,8 +910,8 @@
                 </pre>
             </div>
 
-            <div class="border padding margin">
-                <p>task-item.component.<b>html</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">task-item.component.<b>html</b>:</p>
                 <pre>
                     <code>
     &lt;div class="task"&gt;
@@ -972,8 +966,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="border padding margin">
-                <p>task.component.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">task.component.<b>ts</b>:</p>
                 <pre>
                     <code>
     import { Component, OnInit } from '@angular/core';
@@ -1011,8 +1005,8 @@
                 </div>
             </div>
 
-            <div class="border padding margin">
-                <p>task.service.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">task.service.<b>ts</b>:</p>
                 <pre>
                     <code>
     import { Injectable } from '@angular/core';
@@ -1031,13 +1025,13 @@
 
             </div>
 
-            <div class="margin">
-                <p>
+            <div>
+                <p class="p-pre">
                     Devolucion de tareas:
                 </p>
             </div>
-            <div class="border padding margin">
-                <p>task.service.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">task.service.<b>ts</b>:</p>
                 <pre>
                     <code>
     import { Injectable } from '@angular/core';
@@ -1080,8 +1074,8 @@
                 </div>
             </div>
 
-            <div class="border padding margin">
-                <p>tasks.component.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">tasks.component.<b>ts</b>:</p>
                 <pre>
                     <code>
     import { Component, OnInit } from '@angular/core';
@@ -1098,9 +1092,9 @@
     
         constructor(<span class="new-code">private taskService: TaskService</span>) { }
     
-        <span class="new-code">ngOnInit(): void {</span>
+        ngOnInit(): void {
         <span class="new-code">this.tasks = this.taskService.getTasks();</span>
-        <span class="new-code">}</span>    
+        } 
         
     }
             
@@ -1126,8 +1120,8 @@
                 </div>
             </div>
 
-            <div class="border padding margin">
-                <p>task.service.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">task.service.<b>ts</b>:</p>
                 <pre>
                     <code>
     import { Injectable } from '@angular/core';
@@ -1167,8 +1161,8 @@
                 </div>
             </div>
 
-            <div class="border padding margin">
-                <p>tasks.component.<b>ts</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">tasks.component.<b>ts</b>:</p>
                 <pre>
                     <code>
     import { Component, OnInit } from '@angular/core';
@@ -1202,13 +1196,12 @@
             </div>
 
             <div class="directorio">
-                <i class="fa fa-folder icon-folder"></i> <p class="inline">task-list (raiz del proyecto)</p>
-                <div class="dir-folder">
-                </div>
+                <i class="fa fa-folder icon-folder"></i>
+                <p class="inline">task-list (raiz del proyecto)</p>
             </div>
 
-            <div class="border padding margin">
-                <p>package.<b>json</b></p>
+            <div class="border margin">
+                <p class="p-pre">package.<b>json</b></p>
                 <pre>
                     <code>
     {
@@ -1261,12 +1254,12 @@
                 </pre>            
             </div>
 
-            <div class="margin">
-                <p>Creamos el archivo <b>db.json</b>.</p>
+            <div>
+                <p class="p-pre">Creamos el archivo <b>db.json</b>.</p>
             </div>
 
-            <div class="border padding margin">
-                <p>db.<b>json</b>:</p>
+            <div class="border margin">
+                <p class="p-pre">db.<b>json</b>:</p>
                 <pre>
                     <code>
     <span class="new-code">{</span>
@@ -1300,6 +1293,988 @@
             </div>
             
             <!-- Hasta 1:05 hora visto, aprox. -->
+    
+            <div class="info">
+                <h5>Metodos GET y POST para nuestro Servicio.<abbr class="abbr-curiosity" title="Metodos GET y POST de nuestro Servicio hacia nuestro Servidor JSON.">(?)</abbr></h5>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>service</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.service.<b>ts</b> <abbr class="abbr-effect" title="Importamos el modulo Http para esto.">(?)</abbr></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    <span class="new-code">import {HttpClient, HttpHeaders} from '@angular/common/http';</span>
+    import { Observable, of } from 'rxjs';
+    import {Task} from '../Task'
+    import {TASKS} from '../mock-tasks'
+                            
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+                            
+      constructor() { }
+                            
+      getTasks():Observable&lt;Task&#91;&#93;&gt;{
+        const tasks = of(TASKS);
+        return tasks
+      }
+    }
+                            
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">app.module.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+                            
+    import { AppRoutingModule } from './app-routing.module';
+    import { AppComponent } from './app.component';
+    import { HeaderComponent } from './components/header/header.component';
+    import { ButtonComponent } from './components/button/button.component';
+    import { TasksComponent } from './components/tasks/tasks.component';
+    import { TasksItemComponent } from './components/tasks-item/taskscomponent';
+    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+    <span class="new-code">import { HttpClientModule } from '@angular/common/http';</span>    
+                            
+    @NgModule({
+      declarations: [
+        AppComponent,
+        HeaderComponent,
+        ButtonComponent,
+        TasksComponent,
+        TasksItemComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        <span class="new-code">HttpClientModule</span>
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }                            
+                        </code>
+                    </pre>
+                </div>
+                
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>service</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <p class="p-pre">
+                    Definimos una constante para guardar la URL del servidor, inicializamos el metodo Http en el constructor y actualizamos el metodo <b>getTasks()</b> para que opere con nuestro JSON:
+                </p>
+                <div class="border margin">
+                    <p class="p-pre">task.service.<b>ts</b> <abbr class="abbr-curiosity" title="F12, Red, Fetch/XHR, actualizar pagina, veremos que nuestra App hace una llamada a nuestro 'backend', hacia nuestro JSON.">(?)</abbr></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    import {HttpClient, HttpHeaders} from '@angular/common/http';
+    import { Observable, of } from 'rxjs';
+    import {Task} from '../Task'
+    import {TASKS} from '../mock-tasks'
+                            
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+        <span class="new-code">private apiUrl = 'http://localhost:5000/tasks'</span>
+                            
+      constructor(
+        <span class="new-code">private http:HttpClient</span>
+      ) { }
+                            
+      getTasks():Observable&lt;Task&#91;&#93;&gt;{
+        <span class="delete-code">const tasks = of(TASKS);</span>
+        <span class="delete-code">return tasks</span>
+        <span class="new-code">return this.http.get&lt;Task[]&gt;(this.apiUrl)</span>
+      }
+    }
+                        </code>
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Git 5 -->
+            <div class="border padding">
+                <h3 class="inline margin">Git</h3>
+                <h5 class="inline"><abbr class="abbr-caution" title="Esto es opcional.">(?)</abbr> <abbr class="abbr-curiosity" title="Puede que sea necesario reiniciar el servidor nuevamente con el comando 'ng serve' tras los siguientes comandos.">(?)</abbr></h5>
+                <p class="margin">
+                    Terminal de Code: <br>
+                    <b>
+                    git add --all <br>
+                    git commit -m "Servicio y servidor de tareas listo"
+                    <br><br>                    
+                    git checkout master <br>
+                    git merge server_task
+                    </b>
+                    <br><br>
+                    A partir de aquí, el tutorial continua sin Git. Queda a su criterio.
+                </p>
+            </div>
+
+            <div class="info">
+                <h5>Funcion para borrar tarea.</h5>
+                <p>Crearemos la funcion <b>onDelete()</b>.</p>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks-item</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">task-item.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;div class="task"&gt;
+        &lt;h3&gt;{{task.text}} &lt;fa-icon &#91;icon&#93;="faTimes" [ngStyle] = "{'color':'red'}" <span class="new-code">&#40;click&#41;="onDelete()"</span>&gt;&lt;/fa-icon&gt;&lt;/h3&gt;
+        &lt;p&gt;&#123;task.day&#125; &lt;/p&gt;
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task-item.component.<b>ts</b> <abbr class="abbr-curiosity" title="Usamos 'console.log' para comprobar en consola (del navegador, F12 > Consola) que al precionar la 'x' roja, esté llegando la informacion, por ende, que este bien conectada nuestra funcion."">(?)</abbr></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit, Input } from '@angular/core';
+    import {Task} from '../../Task';
+    import {TASKS} from '../../mock-tasks';
+    import { faTimes } from '@fortawesome/free-solid-svg-icons'
+    
+    @Component({
+      selector: 'app-tasks-item',
+      templateUrl: './tasks-item.component.html',
+      styleUrls: ['./tasks-item.component.css']
+    })
+    export class TasksItemComponent implements OnInit {
+      @Input() task: Task = TASKS[0]
+      faTimes = faTimes;
+    
+      constructor() { }
+    
+      ngOnInit(): void {
+      }
+    
+      <span class="new-code">onDelete(){</span>
+        <span class="new-code">console.log("DELETE!");</span>
+      <span class="new-code">}</span>
+    }                            
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    Ya teniendo la funcion conectada:
+                </p>
+                <div class="border margin">
+                    <p class="p-pre">task-item.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;div class="task"&gt;
+        &lt;h3&gt;{{task.text}} &lt;fa-icon &#91;icon&#93;="faTimes" [ngStyle] = "{'color':'red'}" &#40;click&#41;="onDelete(<span class="new-code">task</span>)"&gt;&lt;/fa-icon&gt;&lt;/h3&gt;
+        &lt;p&gt;&#123;task.day&#125; &lt;/p&gt;
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task-item.component.<b>ts</b> <abbr class="abbr-curiosity" title="En consola ahora debe mostrarnos el Registro individual que corresponde a cada Tarea."">(?)</abbr></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit, Input } from '@angular/core';
+    import {Task} from '../../Task';
+    import {TASKS} from '../../mock-tasks';
+    import { faTimes } from '@fortawesome/free-solid-svg-icons'
+    
+    @Component({
+      selector: 'app-tasks-item',
+      templateUrl: './tasks-item.component.html',
+      styleUrls: ['./tasks-item.component.css']
+    })
+    export class TasksItemComponent implements OnInit {
+      @Input() task: Task = TASKS[0]
+      faTimes = faTimes;
+    
+      constructor() { }
+    
+      ngOnInit(): void {
+      }
+    
+      onDelete(<span class="new-code">task: Task</span>)
+        console.log(<span class="new-code">task</span>);
+      }
+    }                            
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    Ahora necesitamos que se encargue la Lista de Tareas (task component) del borrado:
+                </p>
+                <div class="border margin">
+                    <p class="p-pre"></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit, Input, <span class="new-code">Output, EventEmitter</span> } from '@angular/core';
+    import {Task} from '../../Task';
+    import {TASKS} from '../../mock-tasks';
+    import { faTimes } from '@fortawesome/free-solid-svg-icons'
+                            
+    @Component({
+      selector: 'app-tasks-item',
+      templateUrl: './tasks-item.component.html',
+      styleUrls: ['./tasks-item.component.css']
+    })
+    export class TasksItemComponent implements OnInit {
+      @Input() task: Task = TASKS[0]
+      <span class="new-code">@Output() onDeleteTask: EventEmitter&lt;Task&gt; = new EventEmitter()</span>      
+      faTimes = faTimes;
+                            
+      constructor() { }
+                            
+      ngOnInit(): void {
+      }
+                            
+      onDelete(task: Task){
+        <span class="delete-code">console.log(task);</span>
+        <span class="new-code">this.onDeleteTask.emit(task);</span>
+      }
+                            
+    }
+                            
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;app-tasks-item *ngFor="let task of tasks" [task] = "task" <span class="new-code">(onDeleteTask) = "deleteTask(task)"</span>&gt;
+    
+    &lt;/app-tasks-item&gt;
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    Del Item de Tarea (task-item, la tarjeta) enviaremos a la Lista de Tareas (Task), donde Task enviara a nuestro Servicio para que así sea borrada del JSON la tarea seleccionada.
+                    <br><br>
+                    Nota: Tuve un inconveniente durante el video tutorial, el profesor uso primero un codigo y luego otro para <b>deleteTask(task:Task){...}</b> (por un error que corrigio) del <b>task.component.ts</b> pues resulto al menos en mi caso, que un codigo funciona y el otro... digamos que igual pero con un bug (borra la tarea, pero hay que recargar la pagina dado que toda la lista de tareas queda en blanco, que al recargar, aparecen todas las tareas menos el borrado). Debido a esto, pasare ambos codigos, estan remarcados en Naranja, prueven uno y si quieren el otro (ambos a la vez, crasheara el servidor), el que mejor les funcione.
+                </p>
+                <div class="border margin">
+                    <p class="p-pre">task.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    import { TaskService } from 'src/app/service/task.service';
+    import {Task} from '../../Task'
+    @Component({
+      selector: 'app-tasks',
+      templateUrl: './tasks.component.html',
+      styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+      tasks: Task[] = [];
+    
+      constructor(private taskService: TaskService) { }
+    
+      ngOnInit(): void {
+        this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks))
+      }
+
+      <span class="selection-code">deleteTask(task:Task){</span>
+        <span class="selection-code">this.taskService.deleteTask(task).subscribe(() => (this.tasks = this.tasks.filter( (t) => {return task.id !== task.id})))</span>
+      <span class="selection-code">}</span> 
+
+      <span class="selection-code">deleteTask(task:Task){</span>
+        <span class="selection-code">this.taskService.deleteTask(task).subscribe(() => (this.tasks = this.tasks.filter( t => t.id !== task.id)))</span>
+      <span class="selection-code">}</span>   
+    
+    }
+    
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>service</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.service.<b>ts</b> <abbr class="abbr-caution" title="En el 'const' tengan cuidado, no son 'comillas simples' sino mas bien Acentos Graves. Comilla simple ( ' ), acento grave ( ` ) (inclinado a la izquierda).">(?)</abbr> <abbr class="abbr-curiosity" title="En el idioma español solo usamos el Acento Agudo. Mientras el Acento Grave es usado en otras lenguas. Dicho acento es usado en JavaScript para los 'Template literals (Template strings)' que permiten cadenas de varias líneas, la interpolación de cadenas con expresiones incrustadas y construcciones especiales denominadas plantillas etiquetadas.">(?)</abbr></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    import {HttpClient, HttpHeaders} from '@angular/common/http';
+    import { Observable, of } from 'rxjs';
+    import {Task} from '../Task'
+    import {TASKS} from '../mock-tasks'
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+      private apiUrl = 'http://localhost:5000/tasks'
+    
+      constructor(
+        private http:HttpClient
+      ) { }
+    
+      getTasks():Observable&lt;Task[]&gt;{
+        return this.http.get&lt;Task[]&gt;(this.apiUrl)
+      }
+    
+      <span class="new-code">deleteTask(task:Task): Observable&lt;Task&gt;{</span>
+        <span class="new-code">const url = `${this.apiUrl}/${task.id}`</span>
+        <span class="new-code">return this.http.delete&lt;Task&gt;(url)</span>
+      <span class="new-code">}</span>
+      
+    }
+    
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    Ya con esto la funcion de Borrado es completamente funcional. Al borrar una tarea, esta es borrada del Array que tenemos de emulacion de base de datos (archivo db.json).
+                </p>
+                <!-- Hasta 1:20hs. -->
+            </div>
+            <div class="info">
+                <h5>Reminder</h5>
+                <p>
+                    Queremos que al hacer click en una tarjeta, active o desactive (true o false) la variable <b>reminder</b> de tal tarea (tarjeta):
+                </p>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks-item</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">tasks-item.component.<b>html</b> <abbr class="abbr-effect" title="El 'ngClass' aplicara, si reminder es 'true', la clase '.task.reminder' del css de Task-Item.">(?)</abbr></p>
+                    <pre>
+                        <code>
+    &lt;div class="task" <span class="new-code">[ngClass]="{ reminder: task.reminder }" (click)="onToggle(task)"</span>&gt;
+        &lt;h3&gt;{{task.text}} &lt;fa-icon [icon]="faTimes" [ngStyle] = "{'color':'red'}" (click)="onDelete(task)">&lt;/fa-icon&gt;&lt;/h3&gt;
+        &lt;p&gt;{{task.day}}&lt;/p&gt;
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">tasks-item.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+    import {Task} from '../../Task';
+    import {TASKS} from '../../mock-tasks';
+    import { faTimes } from '@fortawesome/free-solid-svg-icons'
+    
+    @Component({
+      selector: 'app-tasks-item',
+      templateUrl: './tasks-item.component.html',
+      styleUrls: ['./tasks-item.component.css']
+    })
+    export class TasksItemComponent implements OnInit {
+      @Input() task: Task = TASKS[0]
+      @Output() onDeleteTask: EventEmitter&lt;Task&gt; = new EventEmitter()
+      <span class="new-code">@Output() onToggleReminder: EventEmitter&lt;Task&gt; = new EventEmitter()</span>      
+      faTimes = faTimes;
+    
+      constructor() { }
+    
+      ngOnInit(): void {
+      }
+    
+      onDelete(task: Task){
+        this.onDeleteTask.emit(task);
+      }
+    
+      <span class="new-code">onToggle(task: Task){</span>
+        <span class="new-code">this.onToggleReminder.emit(task);</span>
+      <span class="new-code">}</span>    
+    }
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;app-tasks-item &#42;ngFor="let task of tasks" [task] = "task" (onDeleteTask) = "deleteTask(task)" <span class="new-code">(onToggleReminder) = "toggleReminder(task)"</span>&gt;
+    
+    &lt;/app-tasks-item&gt;
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    import { TaskService } from 'src/app/service/task.service';
+    import {Task} from '../../Task'
+    @Component({
+      selector: 'app-tasks',
+      templateUrl: './tasks.component.html',
+      styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+      tasks: Task[] = [];
+    
+      constructor(private taskService: TaskService) { }
+    
+      ngOnInit(): void {
+        this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks))
+      }
+    
+      deleteTask(task:Task){
+        this.taskService.deleteTask(task).subscribe(()=>(this.tasks = this.tasks.filter( t => t.id !== task.id)))
+      }
+    
+      <span class="new-code">toggleReminder(task:Task){</span>
+        <span class="new-code">task.reminder = !task.reminder</span>
+      <span class="new-code">}</span>    
+    }
+    
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    De momento solo vemos un cambio en el FrontEnd (solo visual). Necesitamos que llegue a actualizar la base de datos:
+                </p>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>service</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.service.<b>ts</b> <abbr class="abbr-effect" title="updateTaskReminder() lo que hara sera crear y enviar un .json para actualizar la base de datos.">(?)</abbr></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    import {HttpClient, HttpHeaders} from '@angular/common/http';
+    import { Observable, of } from 'rxjs';
+    import {Task} from '../Task'
+    import {TASKS} from '../mock-tasks'
+    
+    <span class="new-code">const httpOptions = {</span>
+      <span class="new-code">headers: new HttpHeaders({</span>
+        <span class="new-code">'Content-Type':'application/json'</span>
+      <span class="new-code">})</span>
+    <span class="new-code">}</span>
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+      private apiUrl = 'http://localhost:5000/tasks'
+    
+      constructor(
+        private http:HttpClient
+      ) { }
+    
+      getTasks():Observable&lt;Task[]&gt;{
+        return this.http.get&lt;Task[]&gt;(this.apiUrl)
+      }
+    
+      deleteTask(task:Task): Observable&lt;Task[]&gt;{
+        const url = `${this.apiUrl}/${task.id}`
+        return this.http.delete&lt;Task[]&gt;(url)
+      }
+    
+      <span class="new-code">updateTaskReminder(task: Task): Observable&lt;Task[]&gt;{</span>
+        <span class="new-code">const url = `${this.apiUrl}/${task.id}`</span>
+        <span class="new-code">return this.http.put&lt;Task[]&gt;(url, task, httpOptions)</span>
+      <span class="new-code">}</span>
+    }
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">tasks.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    import { TaskService } from 'src/app/service/task.service';
+    import {Task} from '../../Task'
+    @Component({
+      selector: 'app-tasks',
+      templateUrl: './tasks.component.html',
+      styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+      tasks: Task[] = [];
+    
+      constructor(private taskService: TaskService) { }
+    
+      ngOnInit(): void {
+        this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks))
+      }
+    
+      deleteTask(task:Task){
+        this.taskService.deleteTask(task).subscribe(()=>(this.tasks = this.tasks.filter( t => t.id !== task.id)))
+      }
+    
+      toggleReminder(task:Task){
+        task.reminder = !task.reminder
+        <span class="new-code">this.taskService.updateTaskReminder(task).subscribe();</span>        
+      }
+    }
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    Reminder funcionando.
+                </p>
+                <!-- Hasta 1:35hs -->
+            </div>
+
+            <div class="info">
+                <h5>Add Task.</h5>
+                <p>
+                    Crearemos un formulario para agregar una nueva tarea.
+                    <br><br>
+                    Terminal / Consola: <b>ng generate component components/add-task</b>
+                </p>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">app.module.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+    import { HttpClientModule } from '@angular/common/http';
+    <span class="new-code">import { FormsModule } from '@angular/forms'</span>    
+
+    import { AppRoutingModule } from './app-routing.module';
+    import { AppComponent } from './app.component';
+    import { HeaderComponent } from './components/header/header.component';
+    import { ButtonComponent } from './components/button/button.component';
+    import { TasksComponent } from './components/tasks/tasks.component';
+    import { TasksItemComponent } from './components/tasks-item/tasks-item.component';
+    import { AddTaskComponent } from './components/add-task/add-task.component';
+    
+    @NgModule({
+      declarations: [
+        AppComponent,
+        HeaderComponent,
+        ButtonComponent,
+        TasksComponent,
+        TasksItemComponent,
+        AddTaskComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        HttpClientModule<span class="new-code">,</span>
+        <span class="new-code">FormsModule</span>
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">tasks.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    <span class="new-code">&lt;app-add-task&gt;&lt;/app-add-task&gt;</span>
+    &lt;app-tasks-item &#42;ngFor="let task of tasks" [task] = "task" (onDeleteTask) = "deleteTask(task)" (onToggleReminder) = "toggleReminder(task)"&gt;
+        
+    &lt;/app-tasks-item&gt;
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>add-task</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">add-task.component.<b>css</b></p>
+                    <pre>
+                        <code>
+    <span class="new-code">.add-form{</span>
+        <span class="new-code">margin-bottom: 40px;</span>
+    <span class="new-code">}</span>
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">add-task.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    <span class="new-code">&lt;form class="add-form"&gt;</span>
+        <span class="new-code">&lt;div class="form-control"&gt;</span>
+            <span class="new-code">&lt;label for="text">Task&lt;/label&gt;</span>
+            <span class="new-code">&lt;input type="text" name="text" id="text" placeholder="Add Task Text"&gt;</span>
+        <span class="new-code">&lt;/div&gt;</span>
+
+        <span class="new-code">&lt;div class="form-control"&gt;</span>
+            <span class="new-code">&lt;label for="day">Day & Time&lt;/label&gt;</span>
+            <span class="new-code">&lt;input type="text" name="day" id="day" placeholder="Add Day & Time"&gt;</span>
+        <span class="new-code">&lt;/div&gt;</span>
+
+        <span class="new-code">&lt;div class="form-control form-control-check"&gt;</span>
+            <span class="new-code">&lt;label for="reminder">Reminder&lt;/label&gt;</span>
+            <span class="new-code">&lt;input type="checkbox" name="reminder" id="reminder"&gt;</span>
+        <span class="new-code">&lt;/div&gt;</span>
+
+        <span class="new-code">&lt;input type="submit" value="Save Task" class="btn btn-block"&gt;</span>
+    <span class="new-code">&lt;/form&gt;</span>
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">add-task.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+
+    @Component({
+      selector: 'app-add-task',
+      templateUrl: './add-task.component.html',
+      styleUrls: ['./add-task.component.css']
+    })
+    export class AddTaskComponent implements OnInit {
+      <span class="new-code">text:string = "";</span>
+      <span class="new-code">day:string = "";</span>
+      <span class="new-code">reminder:boolean = false;</span>
+    
+      constructor() { }
+    
+      ngOnInit(): void {
+      }
+    
+    }
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">add-task.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;form class="add-form" <span class="new-code">&#40;ngSubmit&#41;="onSubmit()"</span>&gt;
+        &lt;div class="form-control"&gt;
+            &lt;label for="text">Task&lt;/label&gt;
+            &lt;input type="text" name="text" id="text" placeholder="Add Task Text" <span class="new-code">[{ngModel}]="text"</span>&gt;
+        &lt;/div&gt;
+
+        &lt;div class="form-control"&gt;
+            &lt;label for="day">Day & Time&lt;/label&gt;
+            &lt;input type="text" name="day" id="day" placeholder="Add Day & Time" <span class="new-code">[{ngModel}]="day"</span>&gt;
+        &lt;/div&gt 
+
+        &lt;div class="form-control form-control-check"&gt;
+            &lt;label for="reminder">Reminder&lt;/label&gt;
+            &lt;input type="checkbox" name="reminder" id="reminder" <span class="new-code">[{ngModel}]="reminder"</span>&gt;
+        &lt;/div&gt;
+
+        &lt;input type="submit" value="Save Task" class="btn btn-block"&gt;
+    &lt;/form&gt;
+                        </code>
+                    </pre>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">add-task.component.<b>ts</b> <abbr class="abbr-effect" title="onSubmit() se encargara de enviar una alerta en caso de que enviemos texto vacio y en caso contrario cargará el formulario. Luego los Outputs para enviar los datos a Task.">(?)</abbr></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit<span class="new-code">, Output, EventEmitter</span> } from '@angular/core';
+    <span class="new-code">import { Task } from '../../Task'</span>
+
+    @Component({
+      selector: 'app-add-task',
+      templateUrl: './add-task.component.html',
+      styleUrls: ['./add-task.component.css']
+    })
+    export class AddTaskComponent implements OnInit {
+      <span class="new-code">@Output() onAddTask: EventEmitter<Task> = new EventEmitter</span>
+      text:string = "";
+      day:string = "";
+      reminder:boolean = false;
+    
+      constructor() { }
+    
+      ngOnInit(): void {
+      }
+    
+      <span class="new-code">onSubmit(){</span>
+        <span class="new-code">if(!this.text){</span>
+          <span class="new-code">alert("Please add a task!");</span>
+          <span class="new-code">return</span>
+        <span class="new-code">}</span>
+        <span class="new-code">const {text, day, reminder} = this</span>
+        <span class="new-code">const newTask = {text, day, reminder}</span>
+
+        <span class="new-code">this.onAddTask.emit(newTask);</span>
+      <span class="new-code">}</span>
+    }
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>tasks</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;app-add-task <span class="new-code">&#40;onAddTask&#41;="addTask($event)"</span>&gt;&lt;/app-add-task&gt;
+    &lt;app-tasks-item &#42;ngFor="let task of tasks" [task] = "task" (onDeleteTask) = "deleteTask(task)" (onToggleReminder) = "toggleReminder(task)"&gt;
+        
+    &lt;/app-tasks-item>
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    Y necesitamos enviar desde Task, hacia nuestro Servicio:
+                </p>
+                <div class="border margin">
+                    <p class="p-pre">task.component.ts</p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    import { TaskService } from 'src/app/service/task.service';
+    import {Task} from '../../Task'
+    @Component({
+      selector: 'app-tasks',
+      templateUrl: './tasks.component.html',
+      styleUrls: ['./tasks.component.css']
+    })
+    export class TasksComponent implements OnInit {
+      tasks: Task[] = [];
+    
+      constructor(private taskService: TaskService) { }
+    
+      ngOnInit(): void {
+        this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks))
+      }
+    
+      deleteTask(task:Task){
+        this.taskService.deleteTask(task).subscribe(()=>(this.tasks = this.tasks.filter( t => t.id !== task.id)))
+      }
+    
+      toggleReminder(task:Task){
+        task.reminder = !task.reminder
+        this.taskService.updateTaskReminder(task).subscribe();
+      }
+    
+      <span class="new-code">addTask(task:Task){</span>
+        <span class="new-code">this.taskService.addTask(task).subscribe((task) => (this.tasks.push(task)))</span>
+      <span class="new-code">}</span>
+    }
+    
+                        </code>
+                    </pre>
+                </div>
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>service</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border margin">
+                    <p class="p-pre">task.service.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    import {HttpClient, HttpHeaders} from '@angular/common/http';
+    import { Observable, of } from 'rxjs';
+    import {Task} from '../Task'
+    import {TASKS} from '../mock-tasks'
+    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json'
+      })
+    }
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class TaskService {
+      private apiUrl = 'http://localhost:5000/tasks'
+    
+      constructor(
+        private http:HttpClient
+      ) { }
+    
+      getTasks():Observable&lt;Task[]&gt;{
+        return this.http.get&lt;Task[]&gt;(this.apiUrl)
+      }
+    
+      deleteTask(task:Task): Observable&lt;Task[]&gt;{
+        const url = `${this.apiUrl}/${task.id}`
+        return this.http.delete&lt;Task[]&gt;(url)
+      }
+    
+      updateTaskReminder(task: Task): Observable&lt;Task[]&gt;{
+        const url = `${this.apiUrl}/${task.id}`
+        return this.http.put&lt;Task[]&gt;(url, task, httpOptions)
+      }
+    
+      <span class="new-code">addTask(task:Task): Observable&lt;Task[]&gt;{</span>
+        <span class="new-code">return this.http.post&lt;Task[]&gt;(this.apiUrl, task, httpOptions);</span>
+      <span class="new-code">}</span>
+    }
+    
+                        </code>
+                    </pre>
+                </div>
+                <p>
+                    Las nuevas tareas ahora se deberian cargar sin problemas a nuestra base de datos.
+                </p>
+                <!-- Hasta 1:55hs. -->
+            </div>
 
 
         </div>

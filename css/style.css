@@ -28,11 +28,15 @@
 .directorio{
     font-size: 20px;
     padding: 10px 0px 10px 20px;
+    margin: 0px 10px 0px 10px; 
     background-color: rgb(255, 221, 177);
     width:auto
 }
 
 
+.info{
+    padding: 10px 0px 10px 10px;
+}
 .padding{
     padding: 10px 0px 10px 0px;
 }
@@ -56,10 +60,23 @@
     color: rgb(119, 0, 0);
     background-color: rgb(255, 124, 124);
 }
+.selection-code{
+    color: rgb(73, 48, 0);
+    background-color: rgba(255, 166, 0, 0.548);
+}
 
+.indicacion{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
 
-p {
-    padding: 0px 0px 0px 10px;
+.p-pre{
+    padding: 10px 0px 0px 10px;
+}
+.p-solo{
+    padding: 10px 0px 0px 10px;
 }
 
 ul {
