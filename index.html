@@ -864,7 +864,7 @@
                     Usaremos iconos de Fontawesome en nuestra lista de tareas:
                     <br><br>
                     Como la tecnologia se va actualizando constantemente, en Angular ciertas cosas van cambiando, en este caso el uso de FontAwesome. En el siguiente link encontrara las instrucciones para habilitar (hoy por hoy) FontAwesome en su actual proyecto:
-                    <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">GitHub-FontAwesome</a>
+                    <a href="https://github.com/FortAwesome/angular-fontawesome" target="_blank">GitHub-FontAwesome</a> y seguimos las instrucciones hasta donde hace las agregaciones a <b>app.module.ts</b>.
                 </p>
             </div> 
             <div class="directorio">
@@ -915,7 +915,7 @@
                 <pre>
                     <code>
     &lt;div class="task"&gt;
-    &lt;h3&gt;{{task.text}} <span class="new-code">&lt;fa-icon &#91;icon&#93;="faTimes" [ngStyle] = "{'color':'red'}"&gt;&lt;/fa-icon&gt;</span>&lt;/h3&gt;
+    &lt;<b>h3</b>&gt;{{task.text}} <span class="new-code">&lt;fa-icon &#91;icon&#93;="faTimes" [ngStyle] = "{'color':'red'}"&gt;&lt;/fa-icon&gt;</span>&lt;<b>/h3</b>&gt;
         &lt;p&gt;{{task.day}}&lt;/p&gt;
     &lt;/div&gt;                    
                     </code>
@@ -1549,10 +1549,10 @@
                     Ahora necesitamos que se encargue la Lista de Tareas (task component) del borrado:
                 </p>
                 <div class="border margin">
-                    <p class="p-pre"></p>
+                    <p class="p-pre">task-item.component.<b>ts</b></p>
                     <pre>
                         <code>
-    import { Component, OnInit, Input, <span class="new-code">Output, EventEmitter</span> } from '@angular/core';
+    import { Component, OnInit, Input<span class="new-code">, Output, EventEmitter</span> } from '@angular/core';
     import {Task} from '../../Task';
     import {TASKS} from '../../mock-tasks';
     import { faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -1943,6 +1943,11 @@
                         </ul>
                     </div>
                 </div>
+
+                <p>
+                    Haremos uso de los Formularios que disponemos para Angular. Por ello, importamos su respectivo modulo:
+                </p>
+
                 <div class="border margin">
                     <p class="p-pre">app.module.<b>ts</b></p>
                     <pre>
@@ -2090,17 +2095,17 @@
     &lt;form class="add-form" <span class="new-code">&#40;ngSubmit&#41;="onSubmit()"</span>&gt;
         &lt;div class="form-control"&gt;
             &lt;label for="text">Task&lt;/label&gt;
-            &lt;input type="text" name="text" id="text" placeholder="Add Task Text" <span class="new-code">[{ngModel}]="text"</span>&gt;
+            &lt;input type="text" name="text" id="text" placeholder="Add Task Text" <span class="new-code">[&#40;ngModel&#41;]="text"</span>&gt;
         &lt;/div&gt;
 
         &lt;div class="form-control"&gt;
             &lt;label for="day">Day & Time&lt;/label&gt;
-            &lt;input type="text" name="day" id="day" placeholder="Add Day & Time" <span class="new-code">[{ngModel}]="day"</span>&gt;
+            &lt;input type="text" name="day" id="day" placeholder="Add Day & Time" <span class="new-code">[&#40;ngModel&#41;]="day"</span>&gt;
         &lt;/div&gt 
 
         &lt;div class="form-control form-control-check"&gt;
             &lt;label for="reminder">Reminder&lt;/label&gt;
-            &lt;input type="checkbox" name="reminder" id="reminder" <span class="new-code">[{ngModel}]="reminder"</span>&gt;
+            &lt;input type="checkbox" name="reminder" id="reminder" <span class="new-code">[&#40;ngModel&#41;]="reminder"</span>&gt;
         &lt;/div&gt;
 
         &lt;input type="submit" value="Save Task" class="btn btn-block"&gt;
@@ -2121,7 +2126,7 @@
       styleUrls: ['./add-task.component.css']
     })
     export class AddTaskComponent implements OnInit {
-      <span class="new-code">@Output() onAddTask: EventEmitter<Task> = new EventEmitter</span>
+      <span class="new-code">@Output() onAddTask: EventEmitter&lt;Task&gt; = new EventEmitter</span>
       text:string = "";
       day:string = "";
       reminder:boolean = false;
@@ -2262,8 +2267,8 @@
         return this.http.put&lt;Task[]&gt;(url, task, httpOptions)
       }
     
-      <span class="new-code">addTask(task:Task): Observable&lt;Task[]&gt;{</span>
-        <span class="new-code">return this.http.post&lt;Task[]&gt;(this.apiUrl, task, httpOptions);</span>
+      <span class="new-code">addTask(task:Task): Observable&lt;Task&gt;{</span>
+        <span class="new-code">return this.http.post&lt;Task&gt;(this.apiUrl, task, httpOptions);</span>
       <span class="new-code">}</span>
     }
     
@@ -2273,10 +2278,680 @@
                 <p>
                     Las nuevas tareas ahora se deberian cargar sin problemas a nuestra base de datos.
                 </p>
+
+
                 <!-- Hasta 1:55hs. -->
+
+                
+                <h2>
+                    Boton "Add Task".
+                </h2>
+                <h3>
+                    Servicio para nuestro UI.
+                </h3>
+                <p>
+                    Crearemos un servicio para que maneje nuestro UI.
+                    <br><br>
+                    <b>ng generate service service/ui</b>
+                </p>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>service</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">ui.service.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    <span class="new-code">import { Observable, Subject } from 'rxjs';</span>   <span class="comment">//Agregamos el observable.</span>
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class UiService {
+
+      <span class="new-code">private showAddTask:boolean = false;</span>    <span class="comment">//Creamos una variable, del tipo boleano.</span>
+      <span class="new-code">private subject = new Subject&lt;any&gt;();</span>     <span class="comment">//Esto tiene que ver con la posibilidad de poder escuchar eventos desde el Template.</span>
+    
+      constructor() { }
+    }
+    
+      <span class="new-code">toggleAddTask():void{</span>
+        <span class="new-code">this.showAddTask = !this.showAddTask;</span>     <span class="comment">//Para revertir el valor boleano de la variable showAddTask.</span>
+        <span class="new-code">this.subject.next(this.showAddTask);</span>
+      <span class="new-code">}</span>
+
+      <span class="new-code">onToggle():Observable&lt;any&gt;{</span>
+        <span class="new-code">return this.subject.asObservable();</span>
+      <span class="new-code">}</span>      
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>header</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">header.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    <span class="new-code">import { UiService } from 'src/app/service/ui.service';</span>     <span class="comment">//Importamos nuestro UiService para escucharlo y al momento de presionar el boton "Add Task", pasarlo al otro componente.</span>
+    <span class="new-code">import { Subscription } from 'rxjs';</span>
+
+    @Component({
+      selector: 'app-header',
+      templateUrl: './header.component.html',
+      styleUrls: ['./header.component.css']
+    })
+    export class HeaderComponent implements OnInit {
+      title:string = 'Task List';
+      <span class="new-code">showAddTask: boolean = false;</span>
+      <span class="new-code">subscription?: Subscription;</span>
+    
+      constructor(<span class="new-code">private uiService:UiService</span>) { }
+    
+      ngOnInit(): void {
+      }
+    
+      toogleAddTask(){
+        <span class="delete-code">console.log("toogleAddTask!");</span>
+        <span class="new-code">this.uiService.toggleAddTask();</span>
+      }
+    
+    }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>service</li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">ui.service.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    import { Observable, Subject } from 'rxjs';
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class UiService {
+    
+      private showAddTask:boolean = false;
+      private subject = new Subject<any>();
+    
+      constructor() { }
+    
+      toggleAddTask():void{
+        <span class="new-code">console.log("toggleAddTask works!")</span>   <span class="comment">//Con esto probaremos que desde el boton "Add Task" este llegando al Servicio.</span>
+        this.showAddTask = !this.showAddTask;
+        this.subject.next(this.showAddTask);
+      }
+    
+      onToggle():Observable<any>{
+        return this.subject.asObservable();
+      }
+    
+    }
+                        </code>
+                    </pre>
+                </div>
+
+                <p>
+                    En el navegador, pestaña donde este nuestro Task-List, precionar F12 o segundo click e "Inspeccionar", se van a Consola y precionan el boton "Add Task" para ver si llega la orden que codeamos en ui.service. (Esto queda escrito por si alguien anda despistado y no lo recuerda o no lo sabia).
+                </p>
+
+                <div class="border margin">
+                    <p class="p-pre">ui.service.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Injectable } from '@angular/core';
+    import { Observable, Subject } from 'rxjs';
+    
+    @Injectable({
+      providedIn: 'root'
+    })
+    export class UiService {
+    
+      private showAddTask:boolean = false;
+      private subject = new Subject<any>();
+    
+      constructor() { }
+    
+      toggleAddTask():void{
+        <span class="delete-code">console.log("toggleAddTask works!")</span>   <span class="comment">//¿Funciona? entonces ya no hace mas falta.</span>
+        this.showAddTask = !this.showAddTask;
+        this.subject.next(this.showAddTask);
+      }
+    
+      onToggle():Observable<any>{
+        return this.subject.asObservable();
+      }
+    
+    }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>header</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">header.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    <span class="comment">//Modificamos para que el color se asigne en base a la logica de la variable showAddTask. Lo mismo para text.</span>
+
+    &lt;header&gt;
+        &lt;h1&gt;{{title}}&lt;/h1&gt;
+        &lt;app-button <span class="delete-code">color="green"</span> <span class="new-code">color=&quot;&#123;&#123;showAddTask ? 'red' : 'green'&#125;&#125;&quot;</span> <span class="delete-code">text="Add Task"</span> <span class="new-code">text=&quot;&#123;&#123;showAddTask ? 'Close' : 'Add Task'&#125;&#125;&quot;</span> (btnClick)="toogleAddTask()"&gt;&lt;/app-button&gt;
+    &lt;/header&gt;
+
+    <span class="comment">//Podemos hacer pruebas cambiando de "false" a "true" y viceversa la variable "showAddTask" en header.component.ts para ver de momento si esto ultimo implementado funciona.</span>
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">header.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    import { UiService } from 'src/app/service/ui.service';
+    import { Subscription } from 'rxjs';
+    @Component({
+      selector: 'app-header',
+      templateUrl: './header.component.html',
+      styleUrls: ['./header.component.css']
+    })
+    export class HeaderComponent implements OnInit {
+      title:string = 'Task List';
+      showAddTask: boolean = false;
+      subscription?: Subscription;
+    
+      constructor(private uiService:UiService) {
+        <span class="new-code">this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value)</span>
+      }
+    
+      ngOnInit(): void {
+      }
+    
+      toogleAddTask(){
+        this.uiService.toggleAddTask();
+      }
+    
+    }
+                        </code>
+                    </pre>
+                </div>
+
+                <p>
+                    Tras esto, el precionar el boton "Add Task" hara sus correspondientes cambios.
+                </p>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>add-task</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">add-task.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+    <span class="new-code">import { UiService } from 'src/app/service/ui.service';</span>   <span class="comment">//Agregamos nuestro servicio.</span>
+    <span class="new-code">import { Subscription } from 'rxjs';</span>
+    import { Task } from '../../Task'
+    
+    @Component({
+      selector: 'app-add-task',
+      templateUrl: './add-task.component.html',
+      styleUrls: ['./add-task.component.css']
+    })
+    export class AddTaskComponent implements OnInit {
+      @Output() onAddTask: EventEmitter&lt;Task&gt; = new EventEmitter
+      text:string = "";
+      day:string = "";
+      reminder:boolean = false;
+      <span class="new-code">showAddTask: boolean = false;</span>
+      <span class="new-code">subscription?: Subscription;</span>
+    
+      constructor(<span class="new-code">private uiService: UiService</span>) {     <span class="comment">//Inicializamos nuestro servicio.</span>
+        <span class="new-code">this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value)</span>
+      }
+    
+      ngOnInit(): void {
+      }
+    
+      onSubmit(){
+        if(!this.text){
+          alert("Please add a task!");
+          return
+        }
+        const {text, day, reminder} = this
+        const newTask = {text, day, reminder}
+    
+        this.onAddTask.emit(newTask);
+      }
+    
+    }
+                        </code>
+                    </pre>
+                </div>
+
+                <p>
+                    Falta que al precionar, oculte o muestre el formulario para agregar una nueva tarea:
+                </p>
+
+
+                <div class="border margin">
+                    <p class="p-pre">add-task.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;form class="add-form" (ngSubmit)="onSubmit()" <span class="new-code">*ngIf="showAddTask"</span>&gt;
+        &lt;div class="form-control"&gt;
+            &lt;label for="text">Task&lt;/label&gt;
+            &lt;input type="text" name="text" id="text" placeholder="Add Task Text" &#91;&#40;ngModel&#41;&#93;="text"&gt;
+        &lt;/div>
+    
+        &lt;div class="form-control">
+            &lt;label for="day">Day & Time&lt;/label&gt;
+            &lt;input type="text" name="day" id="day" placeholder="Add Day & Time" &#91;&#40;ngModel&#41;&#93;="day"&gt;
+        &lt;/div>
+    
+        &lt;div class="form-control <b>form-control-check</b>"&gt;
+            &lt;label for="reminder">Reminder&lt;/label&gt;
+            &lt;input type="checkbox" name="reminder" id="reminder" &#91;&#40;ngModel&#41;&#93;="reminder"&gt;
+        &lt;/div>
+    
+        &lt;input type="submit" value="Save Task" class="btn btn-block">
+    &lt;/form>
+                        </code>
+                    </pre>
+                </div>
+
+                <h2>Router</h2>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">app.module.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    
+    import { AppRoutingModule } from './app-routing.module';
+    import { AppComponent } from './app.component';
+    import { HeaderComponent } from './components/header/header.component';
+    import { ButtonComponent } from './components/button/button.component';
+    import { TasksComponent } from './components/tasks/tasks.component';
+    import { TasksItemComponent } from './components/tasks-item/tasks-item.component';
+    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+    import { HttpClientModule } from '@angular/common/http';
+    import { AddTaskComponent } from './components/add-task/add-task.component';
+    import { FormsModule } from '@angular/forms';
+    <span class="new-code">import { RouterModule, Routes } from '@angular/router';</span>
+    
+    <span class="new-code">const appRoutes:Routes = [</span>
+      <span class="new-code">{path: '', component: TasksComponent}</span>
+    <span class="new-code">]</span>
+
+    @NgModule({
+      declarations: [
+        AppComponent,
+        HeaderComponent,
+        ButtonComponent,
+        TasksComponent,
+        TasksItemComponent,
+        AddTaskComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        HttpClientModule,
+        FormsModule<span class="new-code">,</span>
+        <span class="new-code">RouterModule.forRoot(appRoutes, {enableTracing: true})</span>
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+    
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">app.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;div class="container"&gt;
+        &lt;app-header&gt;&lt;/app-header&gt;
+        <span class="new-code">&lt;router-outlet&gt;&lt;/router-outlet&gt;</span>
+        <span class="delete-code">&lt;app-tasks&gt;&lt;/app-tasks&gt;</span>
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+
+                <h3>About Component</h3>
+                <p>
+                    <b>ng generate component components/about</b>
+                </p>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>about</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">about.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    <span class="new-code">&lt;div&gt;</span>
+        <span class="new-code">&lt;h2&gt; Task Tracker&lt;/h2&gt;</span>
+        <span class="new-code">&lt;h4&gt; V 1.0.0&lt;/h4&gt;</span>
+        <span class="new-code">&lt;a routerLink="/"&gt;Go Back&lt;/a&gt;</span>     <span class="comment">//Con esto haremos volver hacia atras. Directorio raiz: "localhost:4200/"</span>
+    <span class="new-code">&lt;/div&gt;</span>
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">app.module.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    
+    import { AppRoutingModule } from './app-routing.module';
+    import { AppComponent } from './app.component';
+    import { HeaderComponent } from './components/header/header.component';
+    import { ButtonComponent } from './components/button/button.component';
+    import { TasksComponent } from './components/tasks/tasks.component';
+    import { TasksItemComponent } from './components/tasks-item/tasks-item.component';
+    import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+    import { HttpClientModule } from '@angular/common/http';
+    import { AddTaskComponent } from './components/add-task/add-task.component';
+    import { FormsModule } from '@angular/forms';
+    import { RouterModule, Routes } from '@angular/router';
+    import { AboutComponent } from './components/about/about.component';
+    
+    const appRoutes:Routes = [
+      {path: '', component: TasksComponent}<span class="new-code">,</span>
+      <span class="new-code">{path: 'about', component: AboutComponent}</span>      <span class="comment">//Al colocar "/about", se montara el About.Component. O sea, URL: "localhost:4200/about".</span>
+    ]
+    
+    @NgModule({
+      declarations: [
+        AppComponent,
+        HeaderComponent,
+        ButtonComponent,
+        TasksComponent,
+        TasksItemComponent,
+        AddTaskComponent,
+        AboutComponent
+      ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FontAwesomeModule,
+        HttpClientModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes, {enableTracing: true})
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+    
+                        </code>
+                    </pre>
+                </div>
+
+                <p>
+                    Podemos probar en la URL escribir, luego de nuestro localhost:puerto, "/about" para redireccionarnos a nuestro About.
+                </p>
+
+                <h3>Footer</h3>
+                <b>ng generate component components/footer</b>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>footer</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">footer.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    <span class="new-code">&lt;footer&gt;</span>
+        <span class="new-code">&lt;p&gt;Copyright @2021&lt;/p&gt;</span>
+        <span class="new-code">&lt;a routerLink="/about"&gt;About&lt;/a&gt;</span>
+    <span class="new-code">&lt;/footer&gt;</span>
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">app.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;div class="container"&gt;
+        &lt;app-header&gt;&lt;/app-header&gt;
+        &lt;router-outlet&gt;&lt;/router-outlet&gt;
+        <span class="new-code">&lt;app-footer&gt;&lt;/app-footer&gt;</span>
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+
+                <p>
+                    Usaremos los siguientes <a href="/css/footer.component.css" target="_blank">estilos</a> para footer.component.css.
+                    <br><br>
+                    Ahora lo que ocurre es que ir al About, sigue apareciendo el boton "Add Task", lo que no tiene sentido. Proseguimos:
+                </p>
+
+                <div class="directorio">
+                    <i class="fa fa-folder icon-folder"></i> <p class="inline">src</p>
+                    <div class="dir-folder">
+                        <ul type="disc">
+                            <li>app</li>
+                            <ul type="disc">
+                                <li>components</li>
+                                <ul type="disc">
+                                    <li>header</li>
+                                </ul>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">header.component.<b>ts</b></p>
+                    <pre>
+                        <code>
+    import { Component, OnInit } from '@angular/core';
+    import { UiService } from 'src/app/service/ui.service';
+    import { Subscription } from 'rxjs';
+    <span class="new-code">import { Router } from '@angular/router';</span>     <span class="comment">//Nos permitira escuchar en el header.component en que URL estamos.</span>
+
+    @Component({
+      selector: 'app-header',
+      templateUrl: './header.component.html',
+      styleUrls: ['./header.component.css']
+    })
+    export class HeaderComponent implements OnInit {
+      title:string = 'Task List';
+      showAddTask: boolean = false;
+      subscription?: Subscription;
+    
+      constructor(private uiService:UiService<span class="new-code">, private router:Router</span>) {   <span class="comment">//Lo incluimos en el Constructor. Declaramos variable en el Constructor.</span>
+        this.subscription = this.uiService.onToggle().subscribe(value => this.showAddTask = value)
+      }
+    
+      ngOnInit(): void {
+      }
+    
+      toogleAddTask(){
+        this.uiService.toggleAddTask();
+      }
+
+      <span class="new-code">hasRoute(route: string){</span>    <span class="comment">//Retornara "true" o "false" dependiendo de la URL del Route en la que estemos con respecto al Route de header.component.</span>
+        <span class="new-code">return this.router.url === route</span>
+      <span class="new-code">}</span>
+    }
+    
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="border margin">
+                    <p class="p-pre">header.component.<b>html</b></p>
+                    <pre>
+                        <code>
+    &lt;header&gt;
+        &lt;h1&gt;{{title}}&lt;/h1&gt;
+        &lt;app-button color="&#123;&#123;showAddTask ? 'red' : 'green'&#125;&#125;" text="&#123;&#123;showAddTask ? 'Close' : 'Add Task'&#125;&#125;" &#40;btnClick&#41;="toogleAddTask()" <span class="new-code">&#42;ngIf="hasRoute('/')"</span>&gt;&lt;/app-button&gt;
+    &lt;/header&gt;
+                        </code>
+                    </pre>
+                </div>
+
+                <p>
+                    Si la ruta es "/", mostrara el boton.
+                    <br><br>
+                    Tras esto ya tendremos finalizada nuestra Task-List.
+                    <br><br>
+                    Se durante este tutorial se vio:
+                </p>
+                <ul>
+                    <li><b>Doble Binding</b></li>
+                    <li><b>Server Binding</b></li>
+                    <li><b>Directivas de:</b></li>
+                    <ul>
+                        <li><b>Estilos</b></li>
+                        <li><b>Estructurales</b></li>
+                    </ul>
+                    <li><b>Metodo Subscribe</b> (para el triangulado de variables entre componentes)</li>
+                    <li><b>Rutas</b></li>
+                </ul>
+                <p>
+                    <br><br>
+                    Nota: los Servicios fueron usado para el desarrollo de esta App de manera local. Al subirlo para que opera en Internet, el trabajo de los Servicios es realizado por un BackEnd.
+                    <br><br><br>
+                    <b>Ideas para mejorar la App</b>:
+                </p>
+                <ul>
+                    <li>Al enviar una tarea, que el formulario se vacie.</li>
+                    <li>Que las fechas y horas del formulario sea manejado por un Date Time.</li>
+                    <li>Mandar por email recordatorio de la tarea, notificacion sonora, etc.</li>
+                </ul>
+
+
+
             </div>
-
-
         </div>
 
 

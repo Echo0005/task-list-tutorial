@@ -21,6 +21,10 @@
     color: blue;
 }
 
+.comment {
+    color: grey;
+}
+
 .header{
     padding-top: 15px;
 }
@@ -53,7 +57,7 @@
     background-color: rgb(255, 216, 166);
 }
 .new-code{
-    color: green;
+    color: rgb(0, 65, 0);
     background-color: aquamarine;
 }
 .delete-code{
@@ -85,4 +89,8 @@ ul {
 
 .centrado{
     margin: 0, auto;
+}
+
+li {
+    list-style-type:disc; 
 }
